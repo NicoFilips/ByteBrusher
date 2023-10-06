@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "ByteBrusher": {
-      "commandName": "Project",
-      "commandLineArgs": "-p \"C://Users/public/\" "
-    }
-  }
-}
