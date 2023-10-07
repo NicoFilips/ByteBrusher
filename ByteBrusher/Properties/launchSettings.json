@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ByteBrusher": {
+      "commandName": "Project",
+      "commandLineArgs": "-p \"C://Users/public/\" -d \"false\" -v \"true\" -t \"true\""
+    }
+  }
+}
