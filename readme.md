@@ -30,7 +30,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/NicoFilips/ByteBrusher/">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -39,14 +39,14 @@
   <p align="center">
     An awesome little Project to keep your Desktop tidy!
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/NicoFilips/ByteBrusher"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://github.com/NicoFilips/ByteBrusher/">View Demo</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/NicoFilips/ByteBrusher/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/NicoFilips/ByteBrusher/issues">Request Feature</a>
   </p>
 </div>
 
@@ -126,9 +126,9 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
-* npm
+* dotnet
   ```sh
-  npm install npm@latest -g
+  dotnet build --release
   ```
 
 ### Installation
@@ -142,7 +142,7 @@ _Below is an example of how you can instruct your audience on installing and set
    ```
 3. Install NPM packages
    ```sh
-   npm install
+   nuget restore
    ```
 4. Enter your API in `config.js`
    ```js
@@ -213,7 +213,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/your_username/repo_name]([https://github.com/your_username/repo_name](https://github.com/NicoFilips/ByteBrusher))
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
