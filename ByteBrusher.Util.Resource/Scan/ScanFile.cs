@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ByteBrusher.Utils
+namespace ByteBrusher.Util.Resource.Scan
 {
     public static class ScanFile
     {

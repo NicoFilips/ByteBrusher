@@ -1,3 +1,5 @@
+using NUnit.Framework;
+
 namespace ByteBrusher.test
 {
     public class Tests

@@ -6,7 +6,9 @@ namespace ByteBrusher.Util.Resource
     {
         public static IServiceCollection AddDuplicates(this IServiceCollection services)
         {
-            services => services.AddTransient<IDuplicate, Duplicate>();
+            services =>  services
+                .AddTransient<IDuplicate, Duplicate>()
+                .AddSingleton(options)
             return services;
         }
     }
