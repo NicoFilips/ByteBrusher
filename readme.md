@@ -31,7 +31,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/NicoFilips/ByteBrusher/">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://imagedelivery.net/5MYSbk45M80qAwecrlKzdQ/0cda7ed5-3b8b-4932-1f48-0518b377d800/preview" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Byte Brusher</h3>
