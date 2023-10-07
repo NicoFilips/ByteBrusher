@@ -1,9 +1,6 @@
-﻿using ByteBrusher.Models.CliArgs;
-using ByteBrusher.Models.Util.Duplicate;
-using ByteBrusher.Utils.Arguments;
+﻿
 using CommandLine;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+
 
 namespace ByteBrusher
 {
@@ -82,17 +79,5 @@ namespace ByteBrusher
 
             Console.WriteLine(allFiles.Count.ToString() +" files found");
         }
-
-
-
-
-
-
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureServices((hostContext, services) =>
-                {
-                    services.AddDuplicates<IDuplicate, Duplicate>();
-                });
     }
 }

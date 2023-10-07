@@ -1,4 +1,6 @@
-﻿namespace ByteBrusher.Models.Util.Duplicate
+﻿using ByteBrusher.Models.Util.Duplicate;
+
+namespace ByteBrusher.Util.Resource.Duplicate
 {
     public class Duplicate : IDuplicate
     {
