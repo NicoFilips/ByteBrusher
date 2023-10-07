@@ -85,14 +85,14 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+So if you're just a bit like myself you'll come to the conclusion that its not always easy to keep track of your data. Doesn't matter if it's your vacationpictures, memes, documents, bills, videos or whatever to store. Adding and keeping track of additional Backups, makes the whole thing even worse. And your Desktop isn't git, managing all of this without look into future things you did is hard. This time around, I wanted to create an application, that solves made mistakes. This application recognizes duplicates and removes them, if necessary.
 
 Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+* Your time should be focused on creating something amazing. Finding duplicates and unwanted documents, isn't
+* You shouldn't be doing the same tasks over and over again
+* Keep your desktop tidy and your storage as empty as possible :smile:
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
+Of course, this project may not be perfect and possibly not serve all your needs. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people looking into this Repository!
 
 Use the `BLANK_README.md` to get started.
 
