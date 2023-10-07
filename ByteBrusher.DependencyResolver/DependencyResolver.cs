@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using ByteBrusher.Util.Resource;
+using ByteBrusher.Util.Resource.Duplicate;
+using Microsoft.Extensions.Hosting;
 
 namespace ByteBrusher.DependencyResolver
 {
@@ -8,7 +10,7 @@ namespace ByteBrusher.DependencyResolver
     Host.CreateDefaultBuilder(args)
         .ConfigureServices((hostContext, services) =>
         {
-            services.AddDuplica<IDuplicate, Duplicate>();
+            services.AddDuplicates();
         });
 
     }
