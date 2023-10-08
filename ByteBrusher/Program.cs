@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using System.Runtime.Loader;
 using ByteBrusher.DependencyResolver;
+using ByteBrusher.Util.Resource.Scan;
 
 namespace ByteBrusher
 {
@@ -12,7 +13,7 @@ namespace ByteBrusher
         //use the command argument or want to see it working in debug mode
         //Arguments: "-p" / "--path"
         /// </summary>
-        private static string _pathToCleanUp = "";
+        private static string _pathToCleanUp = "C://users/nicof/pictures";
 
         /// <summary>
         /// Flag: should found files be deleted
@@ -36,9 +37,9 @@ namespace ByteBrusher
         {
             if (args.Length == 0) { Console.WriteLine("Keine Argumente übergeben!"); }
             var host = DependencyResolver.DependencyResolver.CreateHostBuilder(args).Build();
-
-
-
+            
+            
+            ScanUtil scan = host.Services.GetRequiredService<ScanUtil>();
 
             Console.WriteLine("---- < Starting ByteBrusher > ----");
 
@@ -48,9 +49,10 @@ namespace ByteBrusher
 
             Console.WriteLine("Get Files ...");
 
-            var allFiles = Directory.GetFiles(_pathToCleanUp).ToList();
+            var allFiles = scan.GetFiles(_pathToCleanUp);
+                
 
-            Console.WriteLine(allFiles.Count.ToString() +" files found");
+           
         }
     }
 
@@ -67,5 +69,5 @@ namespace ByteBrusher
     ///
 
     ///Todo:
-    /// Unterordner berücksichtigen, Memes 
+    /// Unterordner berücksichtigen, Memes xcvcxv
 }

@@ -1,6 +1,4 @@
-﻿
-
-namespace ByteBrusher.Util.Resource.Duplicate
+﻿namespace ByteBrusher.Util.Resource.Duplicate
 {
     public class Duplicate : IDuplicate
     {

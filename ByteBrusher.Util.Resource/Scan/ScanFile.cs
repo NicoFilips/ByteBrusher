@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ByteBrusher.Util.Interface.Scan;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -8,9 +9,10 @@ using System.Threading.Tasks;
 
 namespace ByteBrusher.Util.Resource.Scan
 {
-    public static class ScanFile
+    public class ScanUtil : IScanUtil
     {
-        static bool isDuplicate(string directoryPath)
+
+        public bool isDuplicate(string directoryPath)
         {
             var files = Directory.GetFiles(directoryPath);
             var fileHashes = new Dictionary<string, List<string>>();
@@ -30,7 +32,7 @@ namespace ByteBrusher.Util.Resource.Scan
             return true;
         }
 
-        static string ComputeSha256Hash(string filename)
+        public string ComputeSha256Hash(string filename)
         {
             using (SHA256 sha256 = SHA256.Create())
             {
@@ -40,6 +42,18 @@ namespace ByteBrusher.Util.Resource.Scan
                     return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
                 }
             }
+        }
+
+        public List<string> GetFiles(string path) 
+        {
+            return Directory.GetFiles($"{path}", path).ToList<string>();
+        }
+
+        /// </inheritdoc>
+        public List<FileInfo> fileInfos(string path)
+        {
+            DirectoryInfo info = new DirectoryInfo(path);
+            return info.GetFiles("*", SearchOption.AllDirectories).ToList();
         }
     }
 }
