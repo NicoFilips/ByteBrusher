@@ -1,6 +1,7 @@
 ﻿using ByteBrusher.Records.Options;
 using ByteBrusher.Util.Interface.Scan;
 using ByteBrusher.Util.Resource.Duplicate;
+using ByteBrusher.Util.Resource.Scan;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -14,7 +15,7 @@ namespace ByteBrusher.Util.Resource
         public static IServiceCollection AddUtilServices(this IServiceCollection services, IConfiguration configuration)
             => services
                 .AddTransient<IDuplicate, Duplicate.Duplicate>()
-                .AddTransient<IScanUtil, Scan.ScanUtil>()
+                .AddTransient<IScanUtil, ScanUtil>()
                 .Configure<FileExtensions>(configuration.GetSection("FileExtensions"));
             
     }

@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Runtime.Loader;
 using ByteBrusher.DependencyResolver;
 using ByteBrusher.Util.Resource.Scan;
+using ByteBrusher.Util.Interface.Scan;
 
 namespace ByteBrusher
 {
@@ -30,29 +31,34 @@ namespace ByteBrusher
         /// </summary>
         private static bool _includeVideos = false;
 
+        /// <summary>
+        /// DI Object for ScanUtil Service
+        /// </summary>
+        private static IScanUtil _scanUtil { get; set; } = null;
+
+
 
         private static List<string> _foundFiles = new List<string>();
 
         static void Main(string[] args)
         {
             if (args.Length == 0) { Console.WriteLine("Keine Argumente übergeben!"); }
-            var host = DependencyResolver.DependencyResolver.CreateHostBuilder(args).Build();
-            
-            
-            ScanUtil scan = host.Services.GetRequiredService<ScanUtil>();
 
             Console.WriteLine("---- < Starting ByteBrusher > ----");
 
+            var host = DependencyResolver.DependencyResolver.CreateHostBuilder(args).Build();
+            _scanUtil = host.Services.GetRequiredService<IScanUtil>();
 
             Console.WriteLine("Validate CLI Arguments:");
 
-
             Console.WriteLine("Get Files ...");
+            var allFiles = _scanUtil.GetFileInfos(_pathToCleanUp);
 
-            var allFiles = scan.GetFiles(_pathToCleanUp);
-                
+            Console.WriteLine("Found: " + allFiles.Count.ToString() + " files. Filtering out Images, Pictures and Videos now.");
 
-           
+
+
+
         }
     }
 

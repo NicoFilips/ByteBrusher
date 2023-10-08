@@ -49,8 +49,8 @@ namespace ByteBrusher.Util.Resource.Scan
             return Directory.GetFiles($"{path}", path).ToList<string>();
         }
 
-        /// </inheritdoc>
-        public List<FileInfo> fileInfos(string path)
+        /// <inheritdoc/>
+        public List<FileInfo> GetFileInfos(string path)
         {
             DirectoryInfo info = new DirectoryInfo(path);
             return info.GetFiles("*", SearchOption.AllDirectories).ToList();
