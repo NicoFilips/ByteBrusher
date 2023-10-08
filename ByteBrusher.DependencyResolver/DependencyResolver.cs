@@ -3,6 +3,7 @@ using ByteBrusher.Util.Resource;
 using CommandLine;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Runtime.CompilerServices;
 
 namespace ByteBrusher.DependencyResolver
 {
@@ -11,7 +12,7 @@ namespace ByteBrusher.DependencyResolver
         public static IHostBuilder CreateHostBuilder(string[] args)
             =>
 
-    Host.CreateDefaultBuilder(args)
+    Host.CreateApplicationBuilder(args)
         .ConfigureServices((hostContext, services) =>
         {
             var options = ParseCommandLineOptions(args);
@@ -19,9 +20,32 @@ namespace ByteBrusher.DependencyResolver
             {
                 services.AddSingleton(options);
             }
-            services.AddDuplicates();
+            services.AddOptions();
             services.AddLogging();
+            services.AddUtilServices();
         });
+
+        public static IHostBuilder CreateHostBuilder2(string[] args)
+        {
+            
+            IHostBuilder host = Host.CreateDefaultBuilder(args)
+            .ConfigureServices((hostContext, services) =>
+            {
+                var options = ParseCommandLineOptions(args);
+                if (options != null)
+                {
+                    services.AddSingleton(options);
+                }
+                services.AddOptions();
+                services.AddLogging();
+                services.confi
+                services.AddUtilServices(host.);
+            });
+            host.
+        }
+
+
+
 
 
         private static Options ParseCommandLineOptions(string[] args)
