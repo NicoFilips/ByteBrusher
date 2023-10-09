@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ByteBrusher.Records\ByteBrusher.Records.csproj" />
+    <ProjectReference Include="..\ByteBrusher.Records\ByteBrusher.Core.csproj" />
     <ProjectReference Include="..\ByteBrusher.Util.Interface\ByteBrusher.Util.Interface.csproj" />
   </ItemGroup>
 

@@ -1,6 +1,6 @@
 ﻿using CommandLine;
 
-namespace ByteBrusher.Records.CmdOptions
+namespace ByteBrusher.Core.Arguments
 {
     public record Options
     {

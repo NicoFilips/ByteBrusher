@@ -1,4 +1,4 @@
-﻿using ByteBrusher.Records.CmdOptions;
+﻿using ByteBrusher.Core.Arguments;
 using ByteBrusher.Util.Resource;
 using CommandLine;
 using Microsoft.Extensions.Configuration;

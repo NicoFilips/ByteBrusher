@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ByteBrusher.Records.Options
+namespace ByteBrusher.Core.Arguments
 {
-    public class FileExtensions
+    public record CliOptions
     {
 
     }

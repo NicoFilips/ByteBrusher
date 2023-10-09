@@ -4,6 +4,9 @@ using System.Runtime.Loader;
 using ByteBrusher.DependencyResolver;
 using ByteBrusher.Util.Resource.Scan;
 using ByteBrusher.Util.Interface.Scan;
+using ByteBrusher.Util.Resource.Filter;
+using ByteBrusher.Util.Interface.Filter;
+using ByteBrusher.Core.File;
 
 namespace ByteBrusher
 {
@@ -36,9 +39,16 @@ namespace ByteBrusher
         /// </summary>
         private static IScanUtil _scanUtil { get; set; } = null;
 
+        /// <summary>
+        /// DI Object for FilterUtil Service
+        /// </summary>
+        private static IFilterUtil _filterUtil { get; set; } = null;
 
 
-        private static List<string> _foundFiles = new List<string>();
+        /// <summary>
+        /// List of found Files
+        /// </summary>
+        private static List<FoundFile> _foundFiles = new List<FoundFile>();
 
         static void Main(string[] args)
         {
@@ -48,16 +58,18 @@ namespace ByteBrusher
 
             var host = DependencyResolver.DependencyResolver.CreateHostBuilder(args).Build();
             _scanUtil = host.Services.GetRequiredService<IScanUtil>();
+            _filterUtil = host.Services.GetRequiredService<IFilterUtil>();
 
             Console.WriteLine("Validate CLI Arguments:");
 
             Console.WriteLine("Get Files ...");
-            var allFiles = _scanUtil.GetFileInfos(_pathToCleanUp);
+            _foundFiles = _scanUtil.GetFileInfos(_pathToCleanUp).ToList();
+            Console.WriteLine("Found: " + _foundFiles.Count.ToString() + " files. Filtering out Images, Pictures and Videos now.");
+            
+            _foundFiles = _filterUtil.filterFiles(_foundFiles).ToList();
+            Console.WriteLine("Filtered List with Console Arguments. Now we have : " + _foundFiles.Count.ToString() + " files left.");
 
-            Console.WriteLine("Found: " + allFiles.Count.ToString() + " files. Filtering out Images, Pictures and Videos now.");
-
-
-
+            Console.ReadKey();
 
         }
     }

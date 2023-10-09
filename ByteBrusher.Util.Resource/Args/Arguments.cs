@@ -1,4 +1,4 @@
-﻿using ByteBrusher.Records.CmdOptions;
+﻿using ByteBrusher.Core.Arguments;
 using CommandLine;
 
 namespace ByteBrusher.Util.Resource.Args
