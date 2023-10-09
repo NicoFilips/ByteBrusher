@@ -2,7 +2,7 @@
   "profiles": {
     "ByteBrusher": {
       "commandName": "Project",
-      "commandLineArgs": "-p \"C://Users/public/\" -d \"false\" -v \"true\" -t \"true\""
+      "commandLineArgs": "-p \"C://Users/nicof/Desktop/PicturesToTestWith\" -d \"false\" -v \"true\" -t \"true\""
     }
   }
 }

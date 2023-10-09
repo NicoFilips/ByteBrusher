@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ByteBrusher.Core.File;
+using ByteBrusher.Core.File.FileTypes.Interface;
 
 namespace ByteBrusher.Util.Interface.Scan
 {
@@ -12,6 +9,11 @@ namespace ByteBrusher.Util.Interface.Scan
         /// Grabs every file with a lot of information and stores it in a List
         /// --> Tested with 100k Images and videos, RAM usage is within a few Megabytes
         /// </summary>
-        public List<FileInfo> GetFileInfos(string path);
+        public IEnumerable<FoundFile> GetFileInfos(string path);
+
+        /// <summary>
+        /// Checks the Filetype of the document
+        /// </summary>
+        public IFileType ClassifyFile(string filename);
     }
 }

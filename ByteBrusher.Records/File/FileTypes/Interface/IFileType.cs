@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ByteBrusher.Records.Options
+namespace ByteBrusher.Core.File.FileTypes.Interface
 {
-    public class FileExtensions
+    public interface IFileType
     {
-
+        public string Name { get; }
     }
 }

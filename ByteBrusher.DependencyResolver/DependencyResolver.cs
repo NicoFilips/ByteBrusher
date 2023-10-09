@@ -1,4 +1,5 @@
-﻿using ByteBrusher.Records.CmdOptions;
+﻿using ByteBrusher.Util.Arguments;
+using ByteBrusher.Util.Arguments.Interface;
 using ByteBrusher.Util.Resource;
 using CommandLine;
 using Microsoft.Extensions.Configuration;
@@ -19,7 +20,7 @@ namespace ByteBrusher.DependencyResolver
                 var options = ParseCommandLineOptions(args);
                 if (options != null)
                 {
-                    services.AddSingleton(options);
+                    services.AddSingleton<ICliOptions, CliOptions>();
                 }
                 services.AddOptions();
                 services.AddLogging();
@@ -31,12 +32,12 @@ namespace ByteBrusher.DependencyResolver
 
 
 
-        private static Options ParseCommandLineOptions(string[] args)
+        private static ICliOptions ParseCommandLineOptions(string[] args)
         {
-            var parsedOptions = Parser.Default.ParseArguments<Options>(args);
+            var parsedOptions = Parser.Default.ParseArguments<CliOptions>(args);
             if (parsedOptions.Tag == ParserResultType.Parsed)
             {
-                return ((Parsed<Options>)parsedOptions).Value;
+                return ((Parsed<CliOptions>)parsedOptions).Value;
             }
 
             // Optional: Loggen oder eine Ausnahme werfen, wenn Sie Fehlerbehandlung hinzufügen möchten

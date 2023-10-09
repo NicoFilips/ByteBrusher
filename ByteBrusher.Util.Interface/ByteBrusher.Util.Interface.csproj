@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ByteBrusher.Records\ByteBrusher.Core.csproj" />
+  </ItemGroup>
+
 </Project>
