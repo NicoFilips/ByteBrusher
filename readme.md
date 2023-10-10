@@ -39,7 +39,7 @@
   <p align="center">
     An awesome little Project to keep your Desktop tidy!
     <br />
-    <a href="https://github.com/NicoFilips/ByteBrusher"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/NicoFilips/ByteBrusher/wiki"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/NicoFilips/ByteBrusher/">View Demo</a>
@@ -98,7 +98,23 @@ Use the `BLANK_README.md` to get started.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
+---
+title: Class-Architecture
+---
+classDiagram
+    note "From Duck till Zebra"
+    Program.cs <|-- ScanUtil
+    note for Duck "can fly\ncan swim\ncan dive\ncan help in debugging"
+    Program.cs <|-- FilterUtil
+    Program.cs : -IScanUtil _scanUtil
+    Program.cs : +IFilterUtil _filterUtil
+    Animal: +main()
+    class ScanUtil{
+        + IOptions<ScanUtil> _options;
+        +ILogger<ScanUtil> _logger;
+        + ScanUtil(IOptions options, ILogger logger)
+        + IEnumerable<string> GetFiles()
+    }
 
 ### Built With
 
@@ -135,18 +151,18 @@ This is an example of how to list things you need to use the software and how to
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. Request a Pull Request
 2. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/your_username_/Project-Name.git](https://github.com/NicoFilips/ByteBrusher/
    ```
-3. Install NPM packages
+3. Restore Nuget packages
    ```sh
    nuget restore
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+4. Start the Application
+   ```csharp
+   dotnet build --release
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -167,15 +183,16 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+- [x] Build Architecture
+- [x] Add Dependency Injection
+- [x] Add and Handle CLI Arguments
+- [x] Add Appsettings with IConfiguration
+- [ ] Add NLog
+- [ ] Use ML.Net to find redundant Documents
+    - [ ] Memetemplates
+    - [ ] Duplicates
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/NicoFilips/ByteBrusher/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -224,14 +241,13 @@ Project Link: [https://github.com/your_username/repo_name]([https://github.com/y
 
 Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
 
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
+* [CommandLineParser]([https://choosealicense.com](https://github.com/commandlineparser/commandline/wiki))
+* [NLog](https://nlog-project.org/)
 * [Malven's Grid Cheatsheet](https://grid.malven.co/)
 * [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
 * [Font Awesome](https://fontawesome.com)
 * [React Icons](https://react-icons.github.io/react-icons/search)
+* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
