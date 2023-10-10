@@ -98,7 +98,23 @@ Use the `BLANK_README.md` to get started.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
+---
+title: Class-Architecture
+---
+classDiagram
+    note "From Duck till Zebra"
+    Program.cs <|-- ScanUtil
+    note for Duck "can fly\ncan swim\ncan dive\ncan help in debugging"
+    Program.cs <|-- FilterUtil
+    Program.cs : -IScanUtil _scanUtil
+    Program.cs : +IFilterUtil _filterUtil
+    Animal: +main()
+    class ScanUtil{
+        + IOptions<ScanUtil> _options;
+        +ILogger<ScanUtil> _logger;
+        + ScanUtil(IOptions options, ILogger logger)
+        + IEnumerable<string> GetFiles()
+    }
 
 ### Built With
 
