@@ -22,7 +22,6 @@ namespace ByteBrusher.Util.Resource.Filter
             _cliOptions = cliOptions;
         }
 
-
         /// <inheritdoc/>
         public List<FoundFile> filterFiles(List<FoundFile> ListToFilter)
         {
@@ -36,8 +35,6 @@ namespace ByteBrusher.Util.Resource.Filter
             }
             return matchedFiles;
         }
-
-
 
         /// <inheritdoc/>
         public bool includeFile(FoundFile file)

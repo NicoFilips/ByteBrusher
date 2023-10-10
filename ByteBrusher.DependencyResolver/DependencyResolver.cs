@@ -20,7 +20,7 @@ namespace ByteBrusher.DependencyResolver
                 var options = ParseCommandLineOptions(args);
                 if (options != null)
                 {
-                    services.AddSingleton<ICliOptions, CliOptions>();
+                    services.AddTransient<ICliOptions, CliOptions>();
                 }
                 services.AddOptions();
                 services.AddLogging();
