@@ -9,9 +9,7 @@
             foreach (string file in Files)
             {
                 if (suffixes.Any(suffix => file.EndsWith(suffix)))
-                {
                     sortedList.Add(file);
-                }
             }
             return sortedList;
         }

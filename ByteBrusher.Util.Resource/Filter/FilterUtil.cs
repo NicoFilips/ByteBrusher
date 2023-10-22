@@ -29,9 +29,7 @@ namespace ByteBrusher.Util.Resource.Filter
             foreach (FoundFile file in ListToFilter)
             {
                 if (includeFile(file))
-                {
                     matchedFiles.Add(file);
-                }
             }
             return matchedFiles;
         }
@@ -40,13 +38,11 @@ namespace ByteBrusher.Util.Resource.Filter
         public bool includeFile(FoundFile file)
         {
             if (file.fileType.Equals(typeof(Video)))
-            {
                 return this._cliOptions.includeVideos;
-            }
+
             if (file.fileType.Equals(typeof(Document)))
-            {
                 return this._cliOptions.includeDocuments;
-            }
+
             return false;
         }
     }
