@@ -7,9 +7,9 @@ using Interface.Hash.Models;
 
 public class HashUtil : IHashUtil
 {
-    public IFileStreaming _fileStream { get; set; }
+    public IFileAbstraction _fileStream { get; set; }
 
-    public HashUtil(IFileStreaming fileStream)
+    public HashUtil(IFileAbstraction fileStream)
     {
         _fileStream = fileStream;
     }
@@ -18,7 +18,7 @@ public class HashUtil : IHashUtil
     {
         using (var md5 = System.Security.Cryptography.MD5.Create())
         {
-            using (FileStream stream = _fileStream.Start(filePath))
+            using (FileStream stream = _fileStream.StartStream(filePath))
             {
                 byte[] hash = await md5.ComputeHashAsync(stream);
                 return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();

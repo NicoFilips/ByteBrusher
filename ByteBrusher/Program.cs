@@ -4,6 +4,7 @@ using ByteBrusher.Util.Interface.Filter;
 using ByteBrusher.Util.Interface.Hash;
 using ByteBrusher.Core.File;
 using ByteBrusher.Util.Arguments.Interface;
+using ByteBrusher.Util.Interface.Delete;
 
 namespace ByteBrusher
 {
@@ -48,6 +49,8 @@ namespace ByteBrusher
 
         private static IHashUtil _hashUtil { get; set; } = null;
 
+        private static IDeleteUtil _deleteUtil { get; set; } = null;
+
         /// <summary>
         /// List of found Files
         /// </summary>
@@ -66,6 +69,7 @@ namespace ByteBrusher
             _filterUtil = host.Services.GetRequiredService<IFilterUtil>();
             _cliOptions = host.Services.GetRequiredService<ICliOptions>();
             _hashUtil = host.Services.GetRequiredService<IHashUtil>();
+            _deleteUtil = host.Services.GetRequiredService<IDeleteUtil>();
 
             Console.WriteLine("Validate CLI Arguments:");
 
@@ -79,14 +83,23 @@ namespace ByteBrusher
             Dictionary<string, List<FoundFile>> duplicates = _hashUtil.GetDuplicatesAsync(_foundFiles).Result;
             Console.WriteLine("Found " + duplicates.Count.ToString() + " duplicates.");
 
+            foreach (var duplicate in duplicates)
+            {
+                if (_deleteFlag)
+                {
+                    Console.WriteLine("Deleting Files now ...");
+                    _deleteUtil.Try(duplicate.Value).SwitchFirst(
+                                                     deleted => Console.WriteLine("Deletation worked"),
+                                                      error => Console.WriteLine(error.Description)
+                                                    );
+                    Console.WriteLine("Deleted Files.");
+                }
+            }
 
             Console.WriteLine("---- < ByteBrusher finished > ----");
             Console.ReadKey();
-
         }
     }
-
-
 
     ///Roadmap
     ///

@@ -7,7 +7,7 @@ using NUnit.Framework;
 
 public class HashUtilTest
 {
-    private readonly Mock<IFileStreaming> _fileStreamMock = new();
+    private readonly Mock<IFileAbstraction> _fileStreamMock = new();
 
     // [Setup]
     // public void Setup()
