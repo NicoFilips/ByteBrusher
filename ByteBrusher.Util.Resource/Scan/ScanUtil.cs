@@ -20,7 +20,7 @@ namespace ByteBrusher.Util.Resource.Scan
             _options = options;
         }
 
-        public bool isDuplicate(string directoryPath)
+        public bool IsDuplicate(string directoryPath)
         {
             var files = Directory.GetFiles(directoryPath);
             var fileHashes = new Dictionary<string, List<string>>();
@@ -29,18 +29,14 @@ namespace ByteBrusher.Util.Resource.Scan
             {
                 string fileHash = ComputeSha256Hash(file);
                 if (fileHashes.ContainsKey(fileHash))
-                {
                     fileHashes[fileHash].Add(file);
-                }
                 else
-                {
                     fileHashes[fileHash] = new List<string> { file };
-                }
             }
             return true;
         }
 
-        public string ComputeSha256Hash(string filename)
+        private string ComputeSha256Hash(string filename)
         {
             using (SHA256 sha256 = SHA256.Create())
             {
@@ -68,7 +64,7 @@ namespace ByteBrusher.Util.Resource.Scan
                     fileInfo = file,
                     fileType = ClassifyFile(file.Name),
                    };
-            } 
+            }
         }
 
         /// <inheritdoc/>
