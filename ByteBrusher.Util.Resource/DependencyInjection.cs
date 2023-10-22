@@ -8,6 +8,8 @@ using ByteBrusher.Util.Resource.Hash;
 using ByteBrusher.Util.Resource.Hash.Models;
 using ByteBrusher.Util.Interface.Hash;
 using ByteBrusher.Util.Interface.Hash.Models;
+using ByteBrusher.Util.Interface.Delete;
+using ByteBrusher.Util.Resource.Delete;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -23,8 +25,9 @@ namespace ByteBrusher.Util.Resource
               .AddTransient<IDuplicate, Duplicate.Duplicate>()
               .AddTransient<IScanUtil, ScanUtil>()
               .AddTransient<IFilterUtil, FilterUtil>()
-              .AddTransient<IFileStreaming, FileStreaming>()
+              .AddTransient<IFileAbstraction, FileAbstraction>()
               .AddTransient<IHashUtil, HashUtil>()
+              .AddTransient<IDeleteUtil, DeleteUtil>()
               .Configure<FileExtensions>(configuration.GetSection("FileExtensions"));
     }
 }
