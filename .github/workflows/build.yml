@@ -2,9 +2,7 @@ name: Build
 
 on:
   push:
-    branches:
-      - main  # Setzen Sie hier den Namen Ihres Hauptzweigs ein
-      - 'Feature/*'
+    branches: [ main ]
 
 jobs:
   build:
@@ -12,15 +10,14 @@ jobs:
 
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '6.0.0'  # Setzen Sie hier Ihre gewünschte .NET Core-Version ein
-
+        dotnet-version: 6.0.x  # Setzen Sie hier Ihre gewünschte .NET Core-Version ein
+        
     - name: Restore dependencies
       run: dotnet restore
-
     - name: Build
       run: dotnet build --configuration Release --no-restore
