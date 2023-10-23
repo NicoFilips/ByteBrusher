@@ -34,6 +34,8 @@
     <img src="https://imagedelivery.net/5MYSbk45M80qAwecrlKzdQ/0cda7ed5-3b8b-4932-1f48-0518b377d800/preview" alt="Logo" width="80" height="80">
   </a>
 
+ [![Build](https://github.com/NicoFilips/ByteBrusher/actions/workflows/build.yml/badge.svg)](https://github.com/NicoFilips/ByteBrusher/actions/workflows/build.yml)
+
   <h3 align="center">Byte Brusher</h3>
 
   <p align="center">
