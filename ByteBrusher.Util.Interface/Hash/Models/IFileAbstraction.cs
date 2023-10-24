@@ -2,7 +2,7 @@
 
 public interface IFileAbstraction
 {
-    public FileStream StartStream(string filePath);
+    public Stream StartStream(string filePath);
     public void Delete(string filePath);
 
     public bool Exists(string filePath);

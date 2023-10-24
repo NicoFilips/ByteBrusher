@@ -18,7 +18,7 @@ public class HashUtil : IHashUtil
     {
         using (var md5 = System.Security.Cryptography.MD5.Create())
         {
-            using (FileStream stream = _fileStream.StartStream(filePath))
+            using (Stream stream = _fileStream.StartStream(filePath))
             {
                 byte[] hash = await md5.ComputeHashAsync(stream);
                 return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
