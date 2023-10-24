@@ -9,7 +9,7 @@ public class FileAbstraction : IFileAbstraction
         return File.OpenRead(filePath);
     }
 
-    public FileStream StartStream(string filePath) => File.OpenRead(filePath);
+    public Stream StartStream(string filePath) => File.OpenRead(filePath);
 
     public void Delete(string filePath) => File.Delete(filePath);
 
