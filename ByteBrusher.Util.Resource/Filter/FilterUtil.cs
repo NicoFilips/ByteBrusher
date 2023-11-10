@@ -22,7 +22,6 @@ namespace ByteBrusher.Util.Resource.Filter
             _cliOptions = cliOptions;
         }
 
-        /// <inheritdoc/>
         public List<FoundFile> filterFiles(List<FoundFile> ListToFilter)
         {
             List<FoundFile> matchedFiles = new List<FoundFile>();
@@ -34,7 +33,6 @@ namespace ByteBrusher.Util.Resource.Filter
             return matchedFiles;
         }
 
-        /// <inheritdoc/>
         public bool includeFile(FoundFile file)
         {
             if (file.fileType.Equals(typeof(Video)))

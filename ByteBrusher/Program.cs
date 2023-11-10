@@ -5,6 +5,7 @@ using ByteBrusher.Util.Interface.Hash;
 using ByteBrusher.Core.File;
 using ByteBrusher.Util.Arguments.Interface;
 using ByteBrusher.Util.Interface.Delete;
+using Microsoft.Extensions.Logging;
 
 namespace ByteBrusher
 {
@@ -16,6 +17,11 @@ namespace ByteBrusher
         //Arguments: "-p" / "--path"
         /// </summary>
         private static string _pathToCleanUp = "C://users/nicof/pictures";
+
+        /// <summary>
+        /// Logger for Program.cs
+        /// </summary>
+        private static ILogger<Program> _logger;
 
         /// <summary>
         /// Flag: should found files be deleted
@@ -59,7 +65,7 @@ namespace ByteBrusher
         static void Main(string[] args)
         {
             if (args.Length == 0)
-                Console.WriteLine("Keine Argumente übergeben!");
+                Console.WriteLine("there were no console arguments!");
 
             Console.WriteLine("---- < Starting ByteBrusher > ----");
 
@@ -89,9 +95,9 @@ namespace ByteBrusher
                 {
                     Console.WriteLine("Deleting Files now ...");
                     _deleteUtil.Try(duplicate.Value).SwitchFirst(
-                                                     deleted => Console.WriteLine("Deletation worked"),
-                                                      error => Console.WriteLine(error.Description)
-                                                    );
+                                                                 deleted => Console.WriteLine("Deletation worked"),
+                                                                 error => Console.WriteLine(error.Description)
+                                                                );
                     Console.WriteLine("Deleted Files.");
                 }
             }
