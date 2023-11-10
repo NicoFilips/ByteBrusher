@@ -1,8 +1,16 @@
-﻿namespace ByteBrusher.Util.Resource.Duplicate
+﻿using Microsoft.Extensions.Logging;
+
+namespace ByteBrusher.Util.Resource.Duplicate
 {
     public class Duplicate : IDuplicate
     {
-        /// </inheritdoc>
+        private ILogger<Duplicate> _logger { get; init; }
+
+        public Duplicate(ILogger<Duplicate> logger)
+        {
+            _logger = _logger;
+        }
+
         public List<string> SortFiles(List<string> suffixes, List<string> Files)
         {
             List<string> sortedList = new List<string>();
@@ -14,7 +22,6 @@
             return sortedList;
         }
 
-        /// <inheritdoc/>
         public List<string> SortList(List<string> suffixes, List<string> files)
         {
             var suffixSet = new HashSet<string>(suffixes);

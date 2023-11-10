@@ -5,13 +5,17 @@ using ByteBrusher.Util.Interface.Hash.Models;
 
 namespace ByteBrusher.Util.Resource.Delete;
 
+using Microsoft.Extensions.Logging;
+
 public class DeleteUtil : IDeleteUtil
 {
     private IFileAbstraction _fileAbstraction { get; init; }
+    private ILogger<DeleteUtil> _logger { get; init; }
 
-    public DeleteUtil(IFileAbstraction fileAbstraction)
+    public DeleteUtil(ILogger<DeleteUtil> logger, IFileAbstraction fileAbstraction)
     {
         _fileAbstraction = fileAbstraction;
+        _logger = logger;
     }
     public ErrorOr<Deleted> Try(List<FoundFile> duplicates)
     {

@@ -1,16 +1,18 @@
 ﻿using ByteBrusher.Util.Interface.Hash;
+using ByteBrusher.Core.File;
+using ByteBrusher.Util.Interface.Hash.Models;
+using Microsoft.Extensions.Logging;
 
 namespace ByteBrusher.Util.Resource.Hash;
 
-using Core.File;
-using Interface.Hash.Models;
-
 public class HashUtil : IHashUtil
 {
-    public IFileAbstraction _fileStream { get; set; }
+    private ILogger<HashUtil> _logger { get; init; }
+    private IFileAbstraction _fileStream { get; set; }
 
-    public HashUtil(IFileAbstraction fileStream)
+    public HashUtil(ILogger<HashUtil> logger, IFileAbstraction fileStream)
     {
+        _logger = logger;
         _fileStream = fileStream;
     }
 

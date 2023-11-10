@@ -3,25 +3,27 @@ using Moq;
 using FluentAssertions;
 using NUnit.Framework;
 using ByteBrusher.Util.Resource.Hash;
+using ByteBrusher.Core.File;
+using ByteBrusher.Core.File.FileTypes;
+using Microsoft.Extensions.Logging;
 
 namespace ByteBrusher.Util.Test.Hash;
-
-using Core.File;
-using Core.File.FileTypes;
-using Core.File.FileTypes.Interface;
 
 public class HashUtilTest
 {
     private Mock<IFileAbstraction> _fileStreamMock = new();
+    private Mock<ILogger<HashUtil>> _logger = new();
 
     [Test]
     public async Task CompareChecksumAsync_whenMockedStream_IsEqual()
     {
         // Arrange
         _fileStreamMock = new Mock<IFileAbstraction>();
+        _logger = new Mock<ILogger<HashUtil>>();
         _fileStreamMock.Setup(x => x.StartStream(It.IsAny<string>()))
                        .Returns(() => new MemoryStream(new byte[0]));
-        HashUtil hashUtil = new HashUtil(_fileStreamMock.Object);
+        HashUtil hashUtil = new HashUtil( _logger.Object,_fileStreamMock.Object);
+
         // Act
         bool result = await hashUtil.CompareChecksumAsync("SameFile", "SameFile");
 
@@ -36,7 +38,7 @@ public class HashUtilTest
         _fileStreamMock.Setup(x => x.StartStream(It.IsAny<string>())).Throws<FileNotFoundException>();
 
         // Act
-        HashUtil hashUtil = new(_fileStreamMock.Object);
+        HashUtil hashUtil = new( _logger.Object,_fileStreamMock.Object);
 
         // Assert
         Assert.ThrowsAsync<FileNotFoundException>(async () => await hashUtil.CompareChecksumAsync("test", "fileToCompare"));
@@ -56,7 +58,7 @@ public class HashUtilTest
                        .Returns(() => new MemoryStream(new byte[0]));
 
         // Act
-        HashUtil hashUtil = new(_fileStreamMock.Object);
+        HashUtil hashUtil = new( _logger.Object,_fileStreamMock.Object);
         var result = await hashUtil.GetDuplicatesAsync(files);
 
         // Assert
