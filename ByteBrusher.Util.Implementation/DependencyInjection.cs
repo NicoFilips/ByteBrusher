@@ -7,6 +7,7 @@ using ByteBrusher.Util.Implementation.Filter;
 using ByteBrusher.Util.Abstraction.Hash;
 using ByteBrusher.Util.Abstraction.Hash.Models;
 using ByteBrusher.Util.Implementation.Delete;
+using ByteBrusher.Util.Implementation.Duplicate;
 using ByteBrusher.Util.Implementation.Hash;
 using ByteBrusher.Util.Implementation.Hash.Models;
 using ByteBrusher.Util.Implementation.Scan;
@@ -22,7 +23,7 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddUtilServices(this IServiceCollection services, IConfiguration configuration)
         => services
-          .AddTransient<IDuplicate, Duplicate.Duplicate>()
+          .AddTransient<IDuplicateUtil, DuplicateUtil>()
           .AddTransient<IScanUtil, ScanUtil>()
           .AddTransient<IFilterUtil, FilterUtil>()
           .AddTransient<IFileAbstraction, FileAbstraction>()
