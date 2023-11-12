@@ -9,11 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteBrusher.test", "ByteBru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Util", "Util", "{9BB57655-B8A6-403B-9A89-CA45946B492D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteBrusher.Util.Interface", "ByteBrusher.Util.Interface\ByteBrusher.Util.Interface.csproj", "{A900F412-9F1C-408B-8483-E498F5D10544}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteBrusher.Util.Abstraction", "ByteBrusher.Util.Abstraction\ByteBrusher.Util.Abstraction.csproj", "{A900F412-9F1C-408B-8483-E498F5D10544}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteBrusher.Util.Resource", "ByteBrusher.Util.Resource\ByteBrusher.Util.Resource.csproj", "{FC52F6C2-7119-4681-9197-5D8059AAE98D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteBrusher.Util.Implementation", "ByteBrusher.Util.Implementation\ByteBrusher.Util.Implementation.csproj", "{FC52F6C2-7119-4681-9197-5D8059AAE98D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteBrusher.Util.Test", "ByteBrusher.Util.Test\ByteBrusher.Util.Test.csproj", "{B05CD11A-D2BC-4626-9A4D-0A4B1134FB53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteBrusher.Util.Unittest", "ByteBrusher.Util.Unittest\ByteBrusher.Util.Unittest.csproj", "{B05CD11A-D2BC-4626-9A4D-0A4B1134FB53}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteBrusher.Core", "ByteBrusher.Records\ByteBrusher.Core.csproj", "{3D17507C-20EE-4D67-86A7-0FF3CCCE6965}"
 EndProject

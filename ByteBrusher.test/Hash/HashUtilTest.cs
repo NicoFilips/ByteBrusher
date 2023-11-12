@@ -1,9 +1,8 @@
-﻿using Moq;
-using ByteBrusher.Util.Interface.Hash.Models;
+﻿using ByteBrusher.Util.Abstraction.Hash.Models;
+using Moq;
 
 namespace ByteBrusher.test.Hash;
 
-using NUnit.Framework;
 
 public class HashUtilTest
 {
@@ -15,9 +14,4 @@ public class HashUtilTest
     //     _fileStreamMock.Setup(x => x.Start(It.IsAny<string>())).Returns(new FileStream("sfsdf"));
     // }
 
-    [Test]
-    public void CalculateChecksum_ValidFile_CalculatesCorrectChecksum()
-    {
-        Assert.Pass();
-    }
 }

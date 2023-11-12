@@ -1,0 +1,196 @@
+{
+  "$schema": "http://json.schemastore.org/sarif-1.0.0",
+  "version": "1.0.0",
+  "runs": [
+    {
+      "tool": {
+        "name": "Microsoft (R) Visual C# Compiler",
+        "version": "4.8.0.0",
+        "fileVersion": "4.8.0-3.23471.11 (bdd9c5ba)",
+        "semanticVersion": "4.8.0",
+        "language": "de-DE"
+      },
+      "results": [
+        {
+          "ruleId": "CA5351",
+          "level": "error",
+          "message": "\"CalculateChecksumAsync\" verwendet einen beschädigten kryptografischen Algorithmus: MD5",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/nicof/source/repos/ByteBrusher/ByteBrusher.Util.Implementation/Hash/HashUtil.cs",
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 25,
+                  "endLine": 22,
+                  "endColumn": 66
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "IDE0052",
+          "level": "note",
+          "message": "Der private Member \"FilterUtil._logger\" kann entfernt werden, weil der zugewiesene Wert nie gelesen wird.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/nicof/source/repos/ByteBrusher/ByteBrusher.Util.Implementation/Filter/FilterUtil.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 40,
+                  "endLine": 14,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "IDE0052",
+          "level": "note",
+          "message": "Der private Member \"FilterUtil._options\" kann entfernt werden, weil der zugewiesene Wert nie gelesen wird.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/nicof/source/repos/ByteBrusher/ByteBrusher.Util.Implementation/Filter/FilterUtil.cs",
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 47,
+                  "endLine": 15,
+                  "endColumn": 55
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "IDE0052",
+          "level": "note",
+          "message": "Die private Eigenschaft \"Duplicate.Logger\" kann in eine Methode konvertiert werden, weil ihr get-Accessor niemals aufgerufen wird.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/nicof/source/repos/ByteBrusher/ByteBrusher.Util.Implementation/Duplicate/Duplicate.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 32,
+                  "endLine": 9,
+                  "endColumn": 38
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "IDE0052",
+          "level": "note",
+          "message": "Die private Eigenschaft \"HashUtil.Logger\" kann in eine Methode konvertiert werden, weil ihr get-Accessor niemals aufgerufen wird.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/nicof/source/repos/ByteBrusher/ByteBrusher.Util.Implementation/Hash/HashUtil.cs",
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 31,
+                  "endLine": 10,
+                  "endColumn": 37
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "IDE0052",
+          "level": "note",
+          "message": "Die private Eigenschaft \"DeleteUtil.Logger\" kann in eine Methode konvertiert werden, weil ihr get-Accessor niemals aufgerufen wird.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/nicof/source/repos/ByteBrusher/ByteBrusher.Util.Implementation/Delete/DeleteUtil.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 33,
+                  "endLine": 12,
+                  "endColumn": 39
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "IDE0052",
+          "level": "note",
+          "message": "Der private Member \"ScanUtil._logger\" kann entfernt werden, weil der zugewiesene Wert nie gelesen wird.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/nicof/source/repos/ByteBrusher/ByteBrusher.Util.Implementation/Scan/ScanUtil.cs",
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 40,
+                  "endLine": 14,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        }
+      ],
+      "rules": {
+        "CA5351": {
+          "id": "CA5351",
+          "shortDescription": "Keine beschädigten kryptografischen Algorithmen verwenden",
+          "fullDescription": "Es ist ein Angriff vorhanden, der es rechnerisch möglich macht, diesen Algorithmus zu zerstören. So können Angreifer die kryptografischen Garantien durchbrechen, für deren Bereitstellung er entwickelt wurde. Je nach Typ und Anwendung dieses kryptografischen Algorithmus können Angreifer verschlüsselte Nachrichten lesen, verschlüsselte Nachrichten manipulieren, digitale Signaturen fälschen, Hashinhalte manipulieren oder jedes auf diesem Algorithmus basierende Verschlüsselungssystem in anderer Hinsicht kompromittieren. Ersetzen Sie die Verwendung von Verschlüsselungen durch den AES-Algorithmus (AES-256, AES-192 und AES-128 sind zulässig) mit einer Schlüssellänge von mindestens 128 Bit. Ersetzen Sie die Verwendung von Hashing durch eine Hashfunktion in der SHA-2-Familie, beispielsweise SHA512, SHA384 oder SHA256. Ersetzen Sie die Verwendung digitaler Signaturen durch RSA mit einer Schlüssellänge von mindestens 2048 Bit oder durch ECDSA mit einer Schlüssellänge von mindestens 256 Bit.",
+          "defaultLevel": "note",
+          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca5351",
+          "properties": {
+            "category": "Security",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Telemetry",
+              "EnabledRuleInAggressiveMode"
+            ]
+          }
+        },
+        "IDE0052": {
+          "id": "IDE0052",
+          "shortDescription": "Ungelesene private Member entfernen",
+          "defaultLevel": "note",
+          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/style-rules/ide0052",
+          "properties": {
+            "category": "CodeQuality",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Telemetry",
+              "EnforceOnBuild_HighlyRecommended",
+              "Unnecessary"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

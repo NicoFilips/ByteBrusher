@@ -126,3 +126,124 @@ csharp_style_conditional_delegate_call = true
 csharp_style_throw_expression = true
 csharp_style_predefined_type_for_locals_parameters_members = true
 csharp_style_predefined_type_for_member_access = true
+csharp_style_namespace_declarations = file_scoped:error
+
+# Analyzer
+dotnet_analyzer_diagnostic.category-style.severity = warning
+
+# IDE0055: Fix formatting
+dotnet_diagnostic.ide0055.severity = none
+
+# IDE0021: Use block body for constructor
+dotnet_diagnostic.ide0021.severity = none
+
+# IDE0011: Add braces to 'if' statement
+dotnet_diagnostic.ide0011.severity = none
+
+# IDE0024: Use expression body for operator 
+dotnet_diagnostic.ide0024.severity = none
+
+# IDE0058: Expression value is never used
+dotnet_diagnostic.ide0058.severity = none
+
+# SA1615: Element return value should be documented.
+dotnet_diagnostic.sa1615.severity = none
+
+# SA1611: Element parameters must be documented.
+dotnet_diagnostic.sa1611.severity = none
+
+# SA1633: File must have header.
+dotnet_diagnostic.sa1633.severity = none
+
+# SA1633: Generic type parameters must be documented.
+dotnet_diagnostic.sa1618.severity = none
+
+# SA1133: Each attribute should be placed in its own set of square brackets.
+dotnet_diagnostic.sa1133.severity = none
+
+# SA1600: Elements must be documented.
+dotnet_diagnostic.sa1600.severity = none
+
+# SA1601: Partial elementes should be documented.
+dotnet_diagnostic.sa1601.severity = none
+
+# SA1201: A constructor should not follow a property
+dotnet_diagnostic.sa1201.severity = none
+
+# SA1101: Prefix local calls with this
+dotnet_diagnostic.sa1101.severity = none
+
+# SA1009: Closing parenthesis should be followed by a space.
+dotnet_diagnostic.sa1009.severity = none
+
+# SA1000: The keyword 'new' should be followed by a space.
+dotnet_diagnostic.sa1000.severity = none
+
+# SA1013: Closing brace should be preceded by a space
+dotnet_diagnostic.sa1013.severity = none
+
+# SA1012: Opening brace should be followed by a space
+dotnet_diagnostic.sa1012.severity = none
+
+# SA1502: Element should not be on a single line
+dotnet_diagnostic.sa1502.severity = none
+
+# SA1202: 'public' members should come before 'protected' members
+dotnet_diagnostic.sa1202.severity = none
+
+# SA1516: Elements should be separated by blank line
+dotnet_diagnostic.sa1516.severity = none
+
+# SA1204: Static members should appear before non-static members
+dotnet_diagnostic.sa1204.severity = none
+
+# SA1413: Use trailing comma in multi-line initializers
+dotnet_diagnostic.sa1413.severity = none
+
+# SA1200: Using directive should appear within a namespace declaration
+dotnet_diagnostic.sa1200.severity = none
+
+# SA1309: Field '_versions' should not begin with an underscore
+dotnet_diagnostic.sa1309.severity = none
+
+# SA1503: Braces should not be omitted
+dotnet_diagnostic.sa1503.severity = none
+
+# SA1313: Parameter 'PackageName' should begin with lower-case letter
+dotnet_diagnostic.sa1313.severity = none
+
+# SA1513: Closing brace should be followed by blank line
+dotnet_diagnostic.sa1513.severity = none
+
+# CS1591 : Missing XML comment for publicly visible type or member
+dotnet_diagnostic.cs1591.severity = none
+
+# SA1642: Constructor summary documentation should begin with standard text
+dotnet_diagnostic.sa1642.severity = none
+
+# SA1629 : Documentation text should end with a period
+dotnet_diagnostic.sa1629.severity = none
+
+# IDE0160 : Convert to block scoped namespace
+dotnet_diagnostic.ide0160.severity = none
+
+# SA1623: The property's documentation summary text should begin with: 'Gets'
+dotnet_diagnostic.sa1623.severity = none
+
+# SA1310 : Field should not contain an underscore
+dotnet_diagnostic.sa1310.severity = none
+
+# SA1602 : Enumeration items should be documented
+dotnet_diagnostic.sa1602.severity = none
+
+# SA1011 : Closing square bracket should be followed by a space
+dotnet_diagnostic.sa1011.severity = none
+
+# IDE0010: Populate switch
+dotnet_diagnostic.ide0010.severity = none
+
+# SA1203: Constant fields should appear before non-constant fields
+dotnet_diagnostic.sa1203.severity = none
+
+# IDE0023: Use block body for operators
+csharp_style_expression_bodied_operators = when_on_single_line

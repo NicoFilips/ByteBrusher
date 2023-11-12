@@ -1,21 +1,13 @@
-﻿using ByteBrusher.Core.File.FileTypes.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ByteBrusher.Core.File.FileTypes.Abstraction;
 
-namespace ByteBrusher.Core.File
+namespace ByteBrusher.Core.File;
+
+public record FoundFile : IDisposable
 {
-    public class FoundFile : IDisposable
-    {
-        public IFileType fileType { get; set; } = null;
-        public FileInfo fileInfo { get; set; } = null;
-        public bool gotDeleted { get; set; } = false;
+    public IFileType FileType { get; set; } = null!;
 
-        public void Dispose()
-        {
-            GC.SuppressFinalize(this);
-        }
-    }
+    public FileInfo FileInfo { get; set; } = null!;
+    public bool GotDeleted { get; set; }
+
+    public void Dispose() => GC.SuppressFinalize(this);
 }

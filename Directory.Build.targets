@@ -1,0 +1,6 @@
+<Project>
+	<ItemGroup>
+		<None Remove="codeanalysis.sarif.json"/>
+	
+	</ItemGroup>
+</Project>

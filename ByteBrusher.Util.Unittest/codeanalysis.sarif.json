@@ -1,0 +1,156 @@
+{
+  "$schema": "http://json.schemastore.org/sarif-1.0.0",
+  "version": "1.0.0",
+  "runs": [
+    {
+      "tool": {
+        "name": "Microsoft (R) Visual C# Compiler",
+        "version": "4.8.0.0",
+        "fileVersion": "4.8.0-3.23471.11 (bdd9c5ba)",
+        "semanticVersion": "4.8.0",
+        "language": "de-DE"
+      },
+      "results": [
+        {
+          "ruleId": "CA1707",
+          "level": "error",
+          "message": "Entfernen Sie die Unterstriche aus dem Membernamen \"ByteBrusher.Util.Unittest.Hash.HashUtilTest.CompareChecksumAsync_whenMockedStream_IsEqual()\".",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/nicof/source/repos/ByteBrusher/ByteBrusher.Util.Unittest/Hash/HashUtilTest.cs",
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 23,
+                  "endLine": 19,
+                  "endColumn": 68
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CA1707",
+          "level": "error",
+          "message": "Entfernen Sie die Unterstriche aus dem Membernamen \"ByteBrusher.Util.Unittest.Hash.HashUtilTest.HashUtil_WhenFileNotFound_Throw()\".",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/nicof/source/repos/ByteBrusher/ByteBrusher.Util.Unittest/Hash/HashUtilTest.cs",
+                "region": {
+                  "startLine": 39,
+                  "startColumn": 17,
+                  "endLine": 39,
+                  "endColumn": 48
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CA1707",
+          "level": "error",
+          "message": "Entfernen Sie die Unterstriche aus dem Membernamen \"ByteBrusher.Util.Unittest.Delete.DeleteUtilTest.TryDelete_ShouldReturnErrorWhenDuplicatesIsEmpty()\".",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/nicof/source/repos/ByteBrusher/ByteBrusher.Util.Unittest/Delete/DeleteUtilTest.cs",
+                "region": {
+                  "startLine": 29,
+                  "startColumn": 17,
+                  "endLine": 29,
+                  "endColumn": 65
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CA1707",
+          "level": "error",
+          "message": "Entfernen Sie die Unterstriche aus dem Membernamen \"ByteBrusher.Util.Unittest.Hash.HashUtilTest.GetDuplicatesAsync_ShouldReturnExpectedDuplicates()\".",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/nicof/source/repos/ByteBrusher/ByteBrusher.Util.Unittest/Hash/HashUtilTest.cs",
+                "region": {
+                  "startLine": 53,
+                  "startColumn": 23,
+                  "endLine": 53,
+                  "endColumn": 72
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "NUnit2003",
+          "level": "note",
+          "message": "Consider using the constraint model, Assert.That(expr, Is.True), instead of the classic model, Assert.IsTrue(expr)",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/nicof/source/repos/ByteBrusher/ByteBrusher.Util.Unittest/Delete/DeleteUtilTest.cs",
+                "region": {
+                  "startLine": 38,
+                  "startColumn": 9,
+                  "endLine": 38,
+                  "endColumn": 38
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "HasToleranceValue": "False",
+              "IsGenericMethod": "False",
+              "ModelName": "IsTrue"
+            }
+          }
+        }
+      ],
+      "rules": {
+        "CA1707": {
+          "id": "CA1707",
+          "shortDescription": "Bezeichner dürfen keine Unterstriche enthalten",
+          "fullDescription": "Laut Konvention enthalten Bezeichnernamen keinen Unterstrich (_). Diese Regel prüft Namespaces, Typen, Member und Parameter.",
+          "defaultLevel": "note",
+          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1707",
+          "properties": {
+            "category": "Naming",
+            "isEnabledByDefault": true,
+            "tags": [
+              "PortedFromFxCop",
+              "Telemetry",
+              "EnabledRuleInAggressiveMode"
+            ]
+          }
+        },
+        "NUnit2003": {
+          "id": "NUnit2003",
+          "shortDescription": "Consider using Assert.That(expr, Is.True) instead of Assert.IsTrue(expr)",
+          "fullDescription": "Consider using the constraint model, Assert.That(expr, Is.True), instead of the classic model, Assert.IsTrue(expr).",
+          "defaultLevel": "note",
+          "helpUri": "https://github.com/nunit/nunit.analyzers/tree/master/documentation/NUnit2003.md",
+          "properties": {
+            "category": "Assertion",
+            "isEnabledByDefault": true
+          }
+        }
+      }
+    }
+  ]
+}

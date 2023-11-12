@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace ByteBrusher.Core.IOptions;
 
-namespace ByteBrusher.Core.IOptions
+public class FileExtensions
 {
-    public class FileExtensions
-    {
-        public string[] VideoSuffix { get; set; } = new string[0];
-        public string[] ImageSuffix { get; set; } = new string[0];
-        public string[] DocumentSuffix { get; set; } = new string[0];
-
-    }
+    public string[] VideoSuffix { get; set; } = Array.Empty<string>();
+    public string[] ImageSuffix { get; set; } = Array.Empty<string>();
+    public string[] DocumentSuffix { get; set; } = Array.Empty<string>();
 }
