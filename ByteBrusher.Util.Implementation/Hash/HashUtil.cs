@@ -18,11 +18,9 @@ public class HashUtil : IHashUtil
 
     public async Task<string> CalculateChecksumAsync(string file)
     {
-#pragma warning disable CA5351
-        using var md5 = System.Security.Cryptography.MD5.Create();
-#pragma warning restore CA5351
+        using var sha256 = System.Security.Cryptography.SHA256.Create();
         await using Stream stream = FileStream.StartStream(file);
-        byte[] hash = await md5.ComputeHashAsync(stream);
+        byte[] hash = await sha256.ComputeHashAsync(stream);
         return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
     }
 
