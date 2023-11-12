@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json.schemastore.org/sarif-1.0.0",
+  "version": "1.0.0",
+  "runs": [
+    {
+      "tool": {
+        "name": "Microsoft (R) Visual C# Compiler",
+        "version": "4.8.0.0",
+        "fileVersion": "4.8.0-3.23471.11 (bdd9c5ba)",
+        "semanticVersion": "4.8.0",
+        "language": "de-DE"
+      },
+      "results": [
+        {
+          "ruleId": "IDE0052",
+          "level": "note",
+          "message": "Der private Member \"HashUtilTest._fileStreamMock\" kann entfernt werden, weil der zugewiesene Wert nie gelesen wird.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/nicof/source/repos/ByteBrusher/ByteBrusher.test/Hash/HashUtilTest.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 45,
+                  "endLine": 9,
+                  "endColumn": 60
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        }
+      ],
+      "rules": {
+        "IDE0052": {
+          "id": "IDE0052",
+          "shortDescription": "Ungelesene private Member entfernen",
+          "defaultLevel": "note",
+          "helpUri": "https://learn.microsoft.com/dotnet/fundamentals/code-analysis/style-rules/ide0052",
+          "properties": {
+            "category": "CodeQuality",
+            "isEnabledByDefault": true,
+            "tags": [
+              "Telemetry",
+              "EnforceOnBuild_HighlyRecommended",
+              "Unnecessary"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

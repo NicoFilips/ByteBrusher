@@ -1,122 +1,100 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using ByteBrusher.Util.Interface.Scan;
-using ByteBrusher.Util.Interface.Filter;
-using ByteBrusher.Util.Interface.Hash;
-using ByteBrusher.Core.File;
-using ByteBrusher.Util.Arguments.Interface;
-using ByteBrusher.Util.Interface.Delete;
+﻿using ByteBrusher.Core.File;
+using ByteBrusher.Util.Abstraction.Arguments;
+using ByteBrusher.Util.Abstraction.Delete;
+using ByteBrusher.Util.Abstraction.Filter;
+using ByteBrusher.Util.Abstraction.Hash;
+using ByteBrusher.Util.Abstraction.Scan;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace ByteBrusher
+namespace ByteBrusher;
+
+/// <summary>
+/// Program.cs
+/// </summary>
+public class Program
 {
-    public class Program
+    /// <summary>
+    /// Set your path manually here, if you dont want to
+    /// use the command argument or want to see it working in debug mode
+    /// Arguments: "-p" / "--path"
+    /// </summary>
+    private static readonly string _pathToCleanUp = string.Empty;
+
+    /// <summary>
+    /// Logger for Program.cs
+    /// </summary>
+    private static ILogger<Program> _logger = null!;
+
+    /// <summary>
+    /// Flag: should found files be deleted
+    /// </summary>
+    public static bool DeleteFlag { get; }
+
+    private static List<FoundFile> foundFiles = null!;
+
+    /// <summary>
+    /// Gets or sets dI Object for ScanUtil Service
+    /// </summary>
+    private static IScanUtil ScanUtil { get; set; } = null!;
+
+    /// <summary>
+    /// Gets or sets dI Object for FilterUtil Service
+    /// </summary>
+    private static IFilterUtil FilterUtil { get; set; } = null!;
+
+    /// <summary>
+    /// Gets or sets dI Object for CliOptions Service
+    /// </summary>
+    private static ICliOptions CliOptions { get; set; } = null!;
+
+    private static IHashUtil HashUtil { get; set; } = null!;
+
+    private static IDeleteUtil DeleteUtil { get; set; } = null!;
+
+    private static void Main(string[] args)
     {
-        /// <summary>
-        //Set your path manually here, if you dont want to
-        //use the command argument or want to see it working in debug mode
-        //Arguments: "-p" / "--path"
-        /// </summary>
-        private static string _pathToCleanUp = "C://users/nicof/pictures";
+        IHost host = DependencyResolver.DependencyResolver.CreateHostBuilder(args).Build();
 
-        /// <summary>
-        /// Logger for Program.cs
-        /// </summary>
-        private static ILogger<Program> _logger;
+        if (args.Length == 0)
+            Console.WriteLine("there were no console arguments!");
 
-        /// <summary>
-        /// Flag: should found files be deleted
-        /// </summary>
-        private static bool _deleteFlag = false;
+        Console.WriteLine("---- < Starting ByteBrusher > ----");
 
-        /// <summary>
-        /// Flag: should Documents be included
-        /// </summary>
-        private static bool _includeDocuments = false;
+        // Like this instead of an constructor because DI injection doesn't work before building the host - obviously  🤓👆
+        _logger = host.Services.GetRequiredService<ILogger<Program>>();
+        ScanUtil = host.Services.GetRequiredService<IScanUtil>();
+        FilterUtil = host.Services.GetRequiredService<IFilterUtil>();
+        CliOptions = host.Services.GetRequiredService<ICliOptions>();
+        HashUtil = host.Services.GetRequiredService<IHashUtil>();
+        DeleteUtil = host.Services.GetRequiredService<IDeleteUtil>();
 
-        /// <summary>
-        /// Flag: should Videos be included
-        /// </summary>
-        private static bool _includeVideos = false;
+        Console.WriteLine("Validate CLI Arguments:");
 
-        /// <summary>
-        /// DI Object for ScanUtil Service
-        /// </summary>
-        private static IScanUtil _scanUtil { get; set; } = null;
+        Console.WriteLine("Get Files ...");
+        foundFiles = ScanUtil.GetFileInfos(_pathToCleanUp).ToList();
+        Console.WriteLine("Found: " + foundFiles.Count + " files. Filtering out Images, Pictures and Videos now.");
 
-        /// <summary>
-        /// DI Object for FilterUtil Service
-        /// </summary>
-        private static IFilterUtil _filterUtil { get; set; } = null;
+        foundFiles = FilterUtil.FilterFiles(foundFiles);
+        Console.WriteLine("Filtered List with Console Arguments. Now we have : " + foundFiles.Count + " files left.");
 
-        /// <summary>
-        /// DI Object for CliOptions Service
-        /// </summary>
-        private static ICliOptions _cliOptions { get; set; } = null;
+        Dictionary<string, List<FoundFile>> duplicates = HashUtil.GetDuplicatesAsync(foundFiles).Result;
+        Console.WriteLine("Found " + duplicates.Count + " duplicates.");
 
-        private static IHashUtil _hashUtil { get; set; } = null;
-
-        private static IDeleteUtil _deleteUtil { get; set; } = null;
-
-        /// <summary>
-        /// List of found Files
-        /// </summary>
-        private static List<FoundFile> _foundFiles = new List<FoundFile>();
-
-        static void Main(string[] args)
+        foreach (KeyValuePair<string, List<FoundFile>> duplicate in duplicates)
         {
-            if (args.Length == 0)
-                Console.WriteLine("there were no console arguments!");
-
-            Console.WriteLine("---- < Starting ByteBrusher > ----");
-
-            var host = DependencyResolver.DependencyResolver.CreateHostBuilder(args).Build();
-
-            _scanUtil = host.Services.GetRequiredService<IScanUtil>();
-            _filterUtil = host.Services.GetRequiredService<IFilterUtil>();
-            _cliOptions = host.Services.GetRequiredService<ICliOptions>();
-            _hashUtil = host.Services.GetRequiredService<IHashUtil>();
-            _deleteUtil = host.Services.GetRequiredService<IDeleteUtil>();
-
-            Console.WriteLine("Validate CLI Arguments:");
-
-            Console.WriteLine("Get Files ...");
-            _foundFiles = _scanUtil.GetFileInfos(_pathToCleanUp).ToList();
-            Console.WriteLine("Found: " + _foundFiles.Count.ToString() + " files. Filtering out Images, Pictures and Videos now.");
-
-            _foundFiles = _filterUtil.filterFiles(_foundFiles);
-            Console.WriteLine("Filtered List with Console Arguments. Now we have : " + _foundFiles.Count.ToString() + " files left.");
-
-            Dictionary<string, List<FoundFile>> duplicates = _hashUtil.GetDuplicatesAsync(_foundFiles).Result;
-            Console.WriteLine("Found " + duplicates.Count.ToString() + " duplicates.");
-
-            foreach (var duplicate in duplicates)
+            if (DeleteFlag)
             {
-                if (_deleteFlag)
-                {
-                    Console.WriteLine("Deleting Files now ...");
-                    _deleteUtil.Try(duplicate.Value).SwitchFirst(
-                                                                 deleted => Console.WriteLine("Deletation worked"),
-                                                                 error => Console.WriteLine(error.Description)
-                                                                );
-                    Console.WriteLine("Deleted Files.");
-                }
+                Console.WriteLine("Deleting Files now ...");
+                DeleteUtil.TryDelete(duplicate.Value).SwitchFirst(
+                                                            deleted => Console.WriteLine("Deletation worked"),
+                                                            error => Console.WriteLine(error.Description));
+                Console.WriteLine("Deleted Files.");
             }
-
-            Console.WriteLine("---- < ByteBrusher finished > ----");
-            Console.ReadKey();
         }
+
+        Console.WriteLine("---- < ByteBrusher finished > ----");
+        Console.ReadKey();
     }
-
-    ///Roadmap
-    ///
-    /// -> Get all files
-    /// --> filter after -> pictures, videos, documents (todo: inject appsettings into configuration/IOptions)
-    /// ---> look for duplicates with Hashing
-    ///
-    ///
-    ///
-    ///
-
-    ///Todo:
-    /// Unterordner berücksichtigen, Memes xcvcxv
 }

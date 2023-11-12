@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ByteBrusher.Core.File.FileTypes.Interface;
+﻿using ByteBrusher.Core.File.FileTypes.Abstraction;
 
-namespace ByteBrusher.Core.File.FileTypes
+namespace ByteBrusher.Core.File.FileTypes;
+
+public record Video : IFileType
 {
-    public record Video : IFileType
-    {
-        public string Name => "Video";
-        private static readonly string[] suffix = { ".mp4", ".avi", ".mkv", ".mov", ".flv" };
-    }
+    public string Name => "Video";
+
+    private static readonly string[] SUFFIX = { ".mp4", ".avi", ".mkv", ".mov", ".flv" };
 }

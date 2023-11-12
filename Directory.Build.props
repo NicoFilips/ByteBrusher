@@ -1,0 +1,23 @@
+<Project>
+	<PropertyGroup>
+		<AnalysisLevel>latest-All</AnalysisLevel>	
+		<ErrorLog>codeanalysis.sarif.json</ErrorLog>
+		<AnalysisLevel>preview-recommended</AnalysisLevel>
+		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+		<AnalysisMode>All</AnalysisMode>
+	</PropertyGroup>
+
+	<PropertyGroup>	
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<IsPackable>false</IsPackable>
+		<WarnOnPackingNonPackableProject>false</WarnOnPackingNonPackableProject>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+</Project>

@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ByteBrusher.Core.File.FileTypes.Interface;
+﻿using ByteBrusher.Core.File.FileTypes.Abstraction;
 
-namespace ByteBrusher.Core.File.FileTypes
+namespace ByteBrusher.Core.File.FileTypes;
+
+public record Image : IFileType
 {
-    public record Image : IFileType
-    {
-        public string Name => "Image";
+    public string Name => "Image";
 
-        private static readonly string[] suffix = { ".jpg", ".jpeg", ".png", ".bmp", ".gif" };
-
-    }
+    private static readonly string[] SUFFIX = { ".jpg", ".jpeg", ".png", ".bmp", ".gif" };
 }
