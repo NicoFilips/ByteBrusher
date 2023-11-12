@@ -14,48 +14,6 @@
         {
           "ruleId": "CA1707",
           "level": "error",
-          "message": "Entfernen Sie die Unterstriche aus dem Membernamen \"ByteBrusher.Util.Unittest.Hash.HashUtilTest.CompareChecksumAsync_whenMockedStream_IsEqual()\".",
-          "suppressionStates": [
-            "suppressedInSource"
-          ],
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/nicof/source/repos/ByteBrusher/ByteBrusher.Util.Unittest/Hash/HashUtilTest.cs",
-                "region": {
-                  "startLine": 19,
-                  "startColumn": 23,
-                  "endLine": 19,
-                  "endColumn": 68
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "CA1707",
-          "level": "error",
-          "message": "Entfernen Sie die Unterstriche aus dem Membernamen \"ByteBrusher.Util.Unittest.Hash.HashUtilTest.HashUtil_WhenFileNotFound_Throw()\".",
-          "suppressionStates": [
-            "suppressedInSource"
-          ],
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/nicof/source/repos/ByteBrusher/ByteBrusher.Util.Unittest/Hash/HashUtilTest.cs",
-                "region": {
-                  "startLine": 39,
-                  "startColumn": 17,
-                  "endLine": 39,
-                  "endColumn": 48
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "CA1707",
-          "level": "error",
           "message": "Entfernen Sie die Unterstriche aus dem Membernamen \"ByteBrusher.Util.Unittest.Delete.DeleteUtilTest.TryDelete_ShouldReturnErrorWhenDuplicatesIsEmpty()\".",
           "suppressionStates": [
             "suppressedInSource"
@@ -69,27 +27,6 @@
                   "startColumn": 17,
                   "endLine": 29,
                   "endColumn": 65
-                }
-              }
-            }
-          ]
-        },
-        {
-          "ruleId": "CA1707",
-          "level": "error",
-          "message": "Entfernen Sie die Unterstriche aus dem Membernamen \"ByteBrusher.Util.Unittest.Hash.HashUtilTest.GetDuplicatesAsync_ShouldReturnExpectedDuplicates()\".",
-          "suppressionStates": [
-            "suppressedInSource"
-          ],
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/nicof/source/repos/ByteBrusher/ByteBrusher.Util.Unittest/Hash/HashUtilTest.cs",
-                "region": {
-                  "startLine": 53,
-                  "startColumn": 23,
-                  "endLine": 53,
-                  "endColumn": 72
                 }
               }
             }
@@ -120,6 +57,116 @@
               "ModelName": "IsTrue"
             }
           }
+        },
+        {
+          "ruleId": "CA1707",
+          "level": "error",
+          "message": "Entfernen Sie die Unterstriche aus dem Membernamen \"ByteBrusher.Util.Unittest.Delete.DeleteUtilTest.TryDelete_ShouldReturnNotFoundErrorWhenFileDoesNotExist()\".",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/nicof/source/repos/ByteBrusher/ByteBrusher.Util.Unittest/Delete/DeleteUtilTest.cs",
+                "region": {
+                  "startLine": 43,
+                  "startColumn": 17,
+                  "endLine": 43,
+                  "endColumn": 72
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CA1707",
+          "level": "error",
+          "message": "Entfernen Sie die Unterstriche aus dem Membernamen \"ByteBrusher.Util.Unittest.Hash.HashUtilTest.CompareChecksumAsync_whenMockedStream_IsEqual()\".",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/nicof/source/repos/ByteBrusher/ByteBrusher.Util.Unittest/Hash/HashUtilTest.cs",
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 23,
+                  "endLine": 19,
+                  "endColumn": 68
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "NUnit2003",
+          "level": "note",
+          "message": "Consider using the constraint model, Assert.That(expr, Is.True), instead of the classic model, Assert.IsTrue(expr)",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/nicof/source/repos/ByteBrusher/ByteBrusher.Util.Unittest/Delete/DeleteUtilTest.cs",
+                "region": {
+                  "startLine": 59,
+                  "startColumn": 9,
+                  "endLine": 59,
+                  "endColumn": 38
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1,
+            "customProperties": {
+              "HasToleranceValue": "False",
+              "IsGenericMethod": "False",
+              "ModelName": "IsTrue"
+            }
+          }
+        },
+        {
+          "ruleId": "CA1707",
+          "level": "error",
+          "message": "Entfernen Sie die Unterstriche aus dem Membernamen \"ByteBrusher.Util.Unittest.Hash.HashUtilTest.HashUtil_WhenFileNotFound_Throw()\".",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/nicof/source/repos/ByteBrusher/ByteBrusher.Util.Unittest/Hash/HashUtilTest.cs",
+                "region": {
+                  "startLine": 39,
+                  "startColumn": 17,
+                  "endLine": 39,
+                  "endColumn": 48
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CA1707",
+          "level": "error",
+          "message": "Entfernen Sie die Unterstriche aus dem Membernamen \"ByteBrusher.Util.Unittest.Hash.HashUtilTest.GetDuplicatesAsync_ShouldReturnExpectedDuplicates()\".",
+          "suppressionStates": [
+            "suppressedInSource"
+          ],
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/nicof/source/repos/ByteBrusher/ByteBrusher.Util.Unittest/Hash/HashUtilTest.cs",
+                "region": {
+                  "startLine": 53,
+                  "startColumn": 23,
+                  "endLine": 53,
+                  "endColumn": 72
+                }
+              }
+            }
+          ]
         }
       ],
       "rules": {

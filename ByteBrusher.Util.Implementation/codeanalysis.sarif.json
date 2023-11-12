@@ -35,6 +35,48 @@
         {
           "ruleId": "IDE0052",
           "level": "note",
+          "message": "Die private Eigenschaft \"DeleteUtil.Logger\" kann in eine Methode konvertiert werden, weil ihr get-Accessor niemals aufgerufen wird.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/nicof/source/repos/ByteBrusher/ByteBrusher.Util.Implementation/Delete/DeleteUtil.cs",
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 33,
+                  "endLine": 12,
+                  "endColumn": 39
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "IDE0052",
+          "level": "note",
+          "message": "Die private Eigenschaft \"Duplicate.Logger\" kann in eine Methode konvertiert werden, weil ihr get-Accessor niemals aufgerufen wird.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/nicof/source/repos/ByteBrusher/ByteBrusher.Util.Implementation/Duplicate/Duplicate.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 32,
+                  "endLine": 9,
+                  "endColumn": 38
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "IDE0052",
+          "level": "note",
           "message": "Der private Member \"FilterUtil._logger\" kann entfernt werden, weil der zugewiesene Wert nie gelesen wird.",
           "locations": [
             {
@@ -77,27 +119,6 @@
         {
           "ruleId": "IDE0052",
           "level": "note",
-          "message": "Die private Eigenschaft \"Duplicate.Logger\" kann in eine Methode konvertiert werden, weil ihr get-Accessor niemals aufgerufen wird.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/nicof/source/repos/ByteBrusher/ByteBrusher.Util.Implementation/Duplicate/Duplicate.cs",
-                "region": {
-                  "startLine": 9,
-                  "startColumn": 32,
-                  "endLine": 9,
-                  "endColumn": 38
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "IDE0052",
-          "level": "note",
           "message": "Die private Eigenschaft \"HashUtil.Logger\" kann in eine Methode konvertiert werden, weil ihr get-Accessor niemals aufgerufen wird.",
           "locations": [
             {
@@ -108,27 +129,6 @@
                   "startColumn": 31,
                   "endLine": 10,
                   "endColumn": 37
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "IDE0052",
-          "level": "note",
-          "message": "Die private Eigenschaft \"DeleteUtil.Logger\" kann in eine Methode konvertiert werden, weil ihr get-Accessor niemals aufgerufen wird.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/nicof/source/repos/ByteBrusher/ByteBrusher.Util.Implementation/Delete/DeleteUtil.cs",
-                "region": {
-                  "startLine": 12,
-                  "startColumn": 33,
-                  "endLine": 12,
-                  "endColumn": 39
                 }
               }
             }

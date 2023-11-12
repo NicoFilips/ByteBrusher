@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ByteBrusher.DependencyResolver\ByteBrusher.DependencyResolver.csproj" />
+    <ProjectReference Include="..\ByteBrusher.Util.Abstraction\ByteBrusher.Util.Abstraction.csproj" />
   </ItemGroup>
 
 </Project>

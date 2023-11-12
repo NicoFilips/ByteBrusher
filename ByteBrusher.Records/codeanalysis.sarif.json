@@ -14,27 +14,6 @@
         {
           "ruleId": "IDE0052",
           "level": "note",
-          "message": "Der private Member \"Video.SUFFIX\" kann entfernt werden, weil der zugewiesene Wert nie gelesen wird.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Users/nicof/source/repos/ByteBrusher/ByteBrusher.Records/File/FileTypes/Video.cs",
-                "region": {
-                  "startLine": 9,
-                  "startColumn": 38,
-                  "endLine": 9,
-                  "endColumn": 44
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "IDE0052",
-          "level": "note",
           "message": "Der private Member \"Document.Suffix\" kann entfernt werden, weil der zugewiesene Wert nie gelesen wird.",
           "locations": [
             {
@@ -61,6 +40,27 @@
             {
               "resultFile": {
                 "uri": "file:///C:/Users/nicof/source/repos/ByteBrusher/ByteBrusher.Records/File/FileTypes/Image.cs",
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 38,
+                  "endLine": 9,
+                  "endColumn": 44
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "IDE0052",
+          "level": "note",
+          "message": "Der private Member \"Video.SUFFIX\" kann entfernt werden, weil der zugewiesene Wert nie gelesen wird.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/nicof/source/repos/ByteBrusher/ByteBrusher.Records/File/FileTypes/Video.cs",
                 "region": {
                   "startLine": 9,
                   "startColumn": 38,

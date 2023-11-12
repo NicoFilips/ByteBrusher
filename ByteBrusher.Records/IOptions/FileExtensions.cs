@@ -1,6 +1,6 @@
 ﻿namespace ByteBrusher.Core.IOptions;
 
-public class FileExtensions
+public record FileExtensions
 {
     public string[] VideoSuffix { get; set; } = Array.Empty<string>();
     public string[] ImageSuffix { get; set; } = Array.Empty<string>();

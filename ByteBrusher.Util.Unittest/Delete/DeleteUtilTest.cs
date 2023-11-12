@@ -36,6 +36,27 @@ public class DeleteUtilTest
 
         // Assert
         Assert.IsTrue(result.IsError);
-        Assert.That(result.FirstError.Description, Is.EqualTo("No duplicates found"));
+        Assert.That(result.FirstError.Code, Is.EqualTo("No duplicates found"));
+    }
+
+    [Test]
+    public void TryDelete_ShouldReturnNotFoundErrorWhenFileDoesNotExist()
+    {
+        // Arrange
+        var loggerMock = new Mock<ILogger<DeleteUtil>>();
+        var fileAbstractionMock = new Mock<IFileAbstraction>();
+        var deleteUtil = new DeleteUtil(loggerMock.Object, fileAbstractionMock.Object);
+
+        var nonExistentFile = new FoundFile { FileInfo = new FileInfo("nonexistentfile.txt") };
+        var duplicates = new List<FoundFile> { nonExistentFile };
+
+        fileAbstractionMock.Setup(fa => fa.Exists(nonExistentFile.FileInfo.FullName)).Returns(false);
+
+        // Act
+        ErrorOr<Deleted> result = deleteUtil.TryDelete(duplicates);
+
+        // Assert
+        Assert.IsTrue(result.IsError);
+        Assert.That(result.FirstError.Code, Is.EqualTo("One or more files do not exist"));
     }
 }

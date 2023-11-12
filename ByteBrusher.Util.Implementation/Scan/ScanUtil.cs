@@ -24,7 +24,6 @@ public class ScanUtil : IScanUtil
     {
         string[] files = Directory.GetFiles(directoryPath);
         var fileHashes = new Dictionary<string, List<string>>();
-
         foreach (string file in files)
         {
             string fileHash = ComputeSha256Hash(file);

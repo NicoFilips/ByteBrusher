@@ -5,7 +5,7 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteBrusher", "ByteBrusher\ByteBrusher.csproj", "{79E67D0C-DE03-4D72-AD6B-6F0842E55542}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteBrusher.test", "ByteBrusher.test\ByteBrusher.test.csproj", "{C7973995-9AC7-4697-9BFD-287E14FF9D66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteBrusher.Integrationtest", "ByteBrusher.Integrationtest\ByteBrusher.Integrationtest.csproj", "{C7973995-9AC7-4697-9BFD-287E14FF9D66}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Util", "Util", "{9BB57655-B8A6-403B-9A89-CA45946B492D}"
 EndProject

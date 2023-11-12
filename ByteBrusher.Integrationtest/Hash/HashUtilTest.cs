@@ -1,7 +1,7 @@
 ﻿using ByteBrusher.Util.Abstraction.Hash.Models;
 using Moq;
 
-namespace ByteBrusher.test.Hash;
+namespace ByteBrusher.test.Unittest;
 
 
 public class HashUtilTest
