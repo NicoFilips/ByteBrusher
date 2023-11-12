@@ -36,9 +36,9 @@ public class FilterUtil : IFilterUtil
     public bool IncludeFile(FoundFile file)
     {
         bool include = false;
-        if (file.FileType.Equals(typeof(Video)))
+        if (file.GetType() == typeof(Video))
             include = this._cliOptions.IncludeVideos;
-        if (file.FileType.Equals(typeof(Document)))
+        if (file.GetType() == typeof(Document))
             include = this._cliOptions.IncludeDocuments;
         return include;
     }
