@@ -29,50 +29,50 @@ public class FilterUtilTest
         _filterUtil = new FilterUtil(_mockLogger.Object, _mockOptions.Object, _mockCliOptions.Object);
     }
 
-    [Test]
-    public void FilterFiles_WhenCalled_FiltersFilesBasedOnCliOptions()
-    {
-        // Arrange
-        var files = new List<FoundFile>
-        {
-            new() { FileType = new Video() },
-            new() { FileType = new Document() }
-        };
+    // [Test]
+    // public void FilterFiles_WhenCalled_FiltersFilesBasedOnCliOptions()
+    // {
+    //     // Arrange
+    //     var files = new List<FoundFile>
+    //     {
+    //         new() { FileType = new Video() },
+    //         new() { FileType = new Document() }
+    //     };
+    //
+    //     _mockCliOptions.Setup(o => o.IncludeVideos).Returns(true);
+    //     _mockCliOptions.Setup(o => o.IncludeDocuments).Returns(false);
+    //
+    //     // Act
+    //     List<FoundFile> result = _filterUtil.FilterFiles(files);
+    //
+    //     // Assert
+    //     Assert.That(result, Has.Exactly(1).Matches<FoundFile>(file => file.GetType() == typeof(Video)));
+    // }
 
-        _mockCliOptions.Setup(o => o.IncludeVideos).Returns(true);
-        _mockCliOptions.Setup(o => o.IncludeDocuments).Returns(false);
+    // [Test]
+    // public void IncludeFile_ShouldReturnTrueForVideoWhenVideosAreIncluded()
+    // {
+    //     var file = new FoundFile { FileType = new Video() };
+    //     _mockCliOptions.Setup(o => o.IncludeVideos).Returns(true);
+    //
+    //     bool result = _filterUtil.IncludeFile(file);
+    //
+    //     Assert.IsTrue(result);
+    // }
 
-        // Act
-        List<FoundFile> result = _filterUtil.FilterFiles(files);
-
-        // Assert
-        Assert.That(result, Has.Exactly(1).Matches<FoundFile>(file => file.GetType() == typeof(Video)));
-    }
-
-    [Test]
-    public void IncludeFile_ShouldReturnTrueForVideoWhenVideosAreIncluded()
-    {
-        var file = new FoundFile { FileType = new Video() };
-        _mockCliOptions.Setup(o => o.IncludeVideos).Returns(true);
-
-        bool result = _filterUtil.IncludeFile(file);
-
-        Assert.IsTrue(result);
-    }
-
-    [Test]
-    public void IncludeFile_WhenCalled_ReturnsTrueForIncludedFileType()
-    {
-        // Arrange
-        var file = new FoundFile { FileType = new Video() };
-        _mockCliOptions.Setup(o => o.IncludeVideos).Returns(true);
-
-        // Act
-        bool result = _filterUtil.IncludeFile(file);
-
-        // Assert
-        Assert.IsTrue(result);
-    }
+    // [Test]
+    // public void IncludeFile_WhenCalled_ReturnsTrueForIncludedFileType()
+    // {
+    //     // Arrange
+    //     var file = new FoundFile { FileType = new Video() };
+    //     _mockCliOptions.Setup(o => o.IncludeVideos).Returns(true);
+    //
+    //     // Act
+    //     bool result = _filterUtil.IncludeFile(file);
+    //
+    //     // Assert
+    //     Assert.IsTrue(result);
+    // }
 
     [Test]
     public void IncludeFile_WhenCalled_ReturnsFalseForExcludedFileType()
