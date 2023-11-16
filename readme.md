@@ -29,7 +29,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/NicoFilips/ByteBrusher/">
-    <img src="[https://imagedelivery.net/5MYSbk45M80qAwecrlKzdQ/0cda7ed5-3b8b-4932-1f48-0518b377d800/preview](https://user-images.githubusercontent.com/35654361/283447253-5e5158f9-249d-4abb-ac12-8ce4cd8835f4.png)" alt="Logo" width="80" height="80">
+    <img src="https://user-images.githubusercontent.com/35654361/283448124-805ac645-a568-42c4-8a1d-177070e4df59.png" alt="Logo" width="200" height="200">
   </a>
 
  [![Build](https://github.com/NicoFilips/ByteBrusher/actions/workflows/build.yml/badge.svg)](https://github.com/NicoFilips/ByteBrusher/actions/workflows/build.yml)
