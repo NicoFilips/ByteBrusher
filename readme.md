@@ -8,33 +8,21 @@
 *** Thanks again! Now go create something AMAZING! :D
 -->
 
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
-
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
   <a href="https://github.com/NicoFilips/ByteBrusher/">
-    <img src="https://imagedelivery.net/5MYSbk45M80qAwecrlKzdQ/0cda7ed5-3b8b-4932-1f48-0518b377d800/preview" alt="Logo" width="80" height="80">
+    <img src="https://user-images.githubusercontent.com/35654361/283448124-805ac645-a568-42c4-8a1d-177070e4df59.png" alt="Logo" width="200" height="200">
+      Source: AI generated
   </a>
 
  [![Build](https://github.com/NicoFilips/ByteBrusher/actions/workflows/build.yml/badge.svg)](https://github.com/NicoFilips/ByteBrusher/actions/workflows/build.yml)
  [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=NicoFilips_ByteBrusher&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=NicoFilips_ByteBrusher)
  [![codecov](https://codecov.io/gh/NicoFilips/ByteBrusher/branch/main/graph/badge.svg?token=DR2EBIWK7B)](https://codecov.io/gh/NicoFilips/ByteBrusher)
+ [![GitHub license](https://img.shields.io/github/license/NicoFilips/ByteBrusher)](https://github.com/NicoFilips/ByteBrusher/blob/main/LICENSE)
 
   <h3 align="center">Byte Brusher</h3>
 
@@ -100,23 +88,29 @@ Use the `BLANK_README.md` to get started.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
----
-title: Class-Architecture
----
 classDiagram
-    note "From Duck till Zebra"
-    Program.cs <|-- ScanUtil
-    note for Duck "can fly\ncan swim\ncan dive\ncan help in debugging"
-    Program.cs <|-- FilterUtil
-    Program.cs : -IScanUtil _scanUtil
-    Program.cs : +IFilterUtil _filterUtil
-    Animal: +main()
-    class ScanUtil{
-        + IOptions<ScanUtil> _options;
-        +ILogger<ScanUtil> _logger;
-        + ScanUtil(IOptions options, ILogger logger)
-        + IEnumerable<string> GetFiles()
+    title Class-Architecture
+
+    class Program.cs {
+        -IScanUtil _scanUtil
+        +IFilterUtil _filterUtil
     }
+
+    class ScanUtil {
+        +IOptions<ScanUtil> _options
+        +ILogger<ScanUtil> _logger
+        +ScanUtil(IOptions options, ILogger logger)
+        +IEnumerable<string> GetFiles()
+    }
+
+    class Animal {
+        +main()
+    }
+
+    Program.cs <|-- ScanUtil : uses
+    Program.cs <|-- FilterUtil : uses
+    note right of ScanUtil : From Duck till Zebra
+    note right of Animal : can fly\ncan swim\ncan dive\ncan help in debugging
 
 ### Built With
 

@@ -1,4 +1,5 @@
-﻿using ByteBrusher.Util.Abstraction.Arguments;
+﻿using ByteBrusher.Framework.Implementation;
+using ByteBrusher.Util.Abstraction.Arguments;
 using ByteBrusher.Util.Implementation;
 using ByteBrusher.Util.Implementation.Arguments;
 using CommandLine;
@@ -24,6 +25,7 @@ public class DependencyResolver
                                        services.AddOptions();
                                        services.AddLogging();
                                        services.AddUtilServices(configuration);
+                                        services.AddFrameworkServices(configuration);
                                    })
                 .UseSerilog( (hostContext, loggerConfiguration) =>
                              {

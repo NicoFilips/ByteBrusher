@@ -37,5 +37,5 @@ jobs:
       with:
         token: ${{ secrets.CODECOV_TOKEN }}  # Optional: only required for private repos
         directory: coverage/
-        files: coverage.cobertura.xml
+        files: Cobertura.xml
         flags: unittests
