@@ -16,7 +16,7 @@
 </a>
 
 <blockquote>
-  <p>Source: AI generated</p>
+  <p>Source: DALL-E 3</p>
 </blockquote>
 
 
