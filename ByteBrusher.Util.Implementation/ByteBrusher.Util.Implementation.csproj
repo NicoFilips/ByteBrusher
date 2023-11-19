@@ -22,8 +22,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ByteBrusher.Framework.Abstraction\ByteBrusher.Framework.Abstraction.csproj" />
     <ProjectReference Include="..\ByteBrusher.Records\ByteBrusher.Core.csproj" />
     <ProjectReference Include="..\ByteBrusher.Util.Abstraction\ByteBrusher.Util.Abstraction.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="JetBrains.ReSharper.TestRunner.Abstractions">
+      <HintPath>..\..\..\..\..\..\Program Files\JetBrains\Rider\r2r\2023.2.3R\E9C94BF5D08822F9BAC410AEB511EFF\TestRunner\netcoreapp3.0\JetBrains.ReSharper.TestRunner.Abstractions.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

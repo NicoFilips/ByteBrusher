@@ -26,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ByteBrusher.Framework.Abstraction\ByteBrusher.Framework.Abstraction.csproj" />
     <ProjectReference Include="..\ByteBrusher.Util.Abstraction\ByteBrusher.Util.Abstraction.csproj" />
     <ProjectReference Include="..\ByteBrusher.Util.Implementation\ByteBrusher.Util.Implementation.csproj" />
   </ItemGroup>

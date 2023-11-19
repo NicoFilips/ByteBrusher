@@ -6,44 +6,62 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System.Security.Cryptography;
 using ByteBrusher.Core.File.FileTypes.Abstraction;
+using ByteBrusher.Framework.Abstraction.Access;
 
 namespace ByteBrusher.Util.Implementation.Scan;
 
 public class ScanUtil : IScanUtil
 {
     private readonly ILogger<ScanUtil> _logger;
-    private readonly IOptions<FileExtensions> _options;
+    private readonly IDirectoryAccess _directoryAccess;
+    private readonly string[] documents;
 
-    public ScanUtil(ILogger<ScanUtil> logger, IOptions<FileExtensions> options)
+    private readonly string[] images;
+
+    private readonly string[] videos;
+    public ScanUtil(ILogger<ScanUtil> logger, IDirectoryAccess directoryAccess, IOptions<FileExtensions> options)
     {
         _logger = logger;
-        _options = options;
+        _directoryAccess = directoryAccess;
+        documents = options.Value.DocumentSuffix;
+        images = options.Value.ImageSuffix;
+        videos = options.Value.VideoSuffix;
     }
 
-    public static bool IsDuplicate(string directoryPath)
+    /// <summary>
+    ///  Checks if there are any duplicate files in the given directory and returns the list of duplicates
+    /// Keep in Mind, that every picture will be hashed and compared so it is a costly operation
+    /// </summary>
+    /// <param name="directoryPath"></param>
+    /// <returns></returns>
+    public bool GetsAllDuplicates(string directoryPath)
     {
-        string[] files = Directory.GetFiles(directoryPath);
+        List<string> files = _directoryAccess.GetFilesInPath(directoryPath);
         var fileHashes = new Dictionary<string, List<string>>();
+
         foreach (string file in files)
         {
             string fileHash = ComputeSha256Hash(file);
-            if (fileHashes.TryGetValue(fileHash, out List<string>? value))
-                value.Add(file);
+            if (fileHashes.TryGetValue(fileHash, out List<string>? fileList))
+            {
+                if (!fileList.Contains(file))
+                    fileList.Add(file);
+            }
             else
                 fileHashes[fileHash] = new List<string> { file };
         }
         return true;
     }
 
-    private static string ComputeSha256Hash(string filename)
+    public string ComputeSha256Hash(string filename)
     {
         using var sha256 = SHA256.Create();
-        using FileStream stream = File.OpenRead(filename);
+        using Stream stream = _directoryAccess.OpenRead(filename);
         byte[] hash = sha256.ComputeHash(stream);
         return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
     }
 
-    public static List<string> GetFiles(string path) => Directory.GetFiles($"{path}", path).ToList();
+
 
     /// <inheritdoc/>
     public IEnumerable<FoundFile> GetFileInfos(string path)
@@ -64,16 +82,21 @@ public class ScanUtil : IScanUtil
         try
         {
             string suffix = Path.GetExtension(filename);
-            var FileDictionary = new Dictionary<IFileType, string[]>
+            var fileDictionary = new Dictionary<IFileType, string[]>
             {
-                { new Document(), _options.Value.DocumentSuffix },
-                { new Image(), _options.Value.ImageSuffix },
-                { new Video(), _options.Value.VideoSuffix },
+                { new Document(), documents },
+                { new Image(), images },
+                { new Video(), videos },
             };
-            return FileDictionary.FirstOrDefault(entry => entry.Value.Contains(suffix)).Key;
+
+            IFileType? fileType = fileDictionary.FirstOrDefault(entry => entry.Value.Contains(suffix)).Key;
+            return fileType ?? new Unspecified();
         }
-        catch (Exception)
+        catch (Exception exception)
         {
+#pragma warning disable CA1848
+            _logger.LogError(exception, "An exception occured {ErrorMessage}", exception.Message);
+#pragma warning restore CA1848
             return new Unspecified();
         }
     }
