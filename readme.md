@@ -8,21 +8,23 @@
 *** Thanks again! Now go create something AMAZING! :D
 -->
 
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/NicoFilips/ByteBrusher/">
-    <img src="https://user-images.githubusercontent.com/35654361/283448124-805ac645-a568-42c4-8a1d-177070e4df59.png" alt="Logo" width="200" height="200">
-      Source: AI generated
-  </a>
+<a href="https://github.com/NicoFilips/ByteBrusher/">
+  <img src="https://user-images.githubusercontent.com/35654361/283448124-805ac645-a568-42c4-8a1d-177070e4df59.png" alt="Logo" width="200" height="200">
+</a>
+
+<blockquote>
+  <p>Source: DALL-E 3</p>
+</blockquote>
+
 
  [![Build](https://github.com/NicoFilips/ByteBrusher/actions/workflows/build.yml/badge.svg)](https://github.com/NicoFilips/ByteBrusher/actions/workflows/build.yml)
  [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=NicoFilips_ByteBrusher&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=NicoFilips_ByteBrusher)
  [![codecov](https://codecov.io/gh/NicoFilips/ByteBrusher/branch/main/graph/badge.svg?token=DR2EBIWK7B)](https://codecov.io/gh/NicoFilips/ByteBrusher)
- [![GitHub license](https://img.shields.io/github/license/NicoFilips/ByteBrusher)](https://github.com/NicoFilips/ByteBrusher/blob/main/LICENSE)
+ [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+ [![GitHub contributors](https://img.shields.io/github/contributors/NicoFilips/ByteBrusher)](https://GitHub.com/NicoFilips/ByteBrusher/graphs/contributors/)
 
   <h3 align="center">Byte Brusher</h3>
 
@@ -44,7 +46,7 @@
 
 <!-- TABLE OF CONTENTS -->
 <details>
-  <summary>Table of Contents</summary>
+  <summary>Table of Contents 📋 </summary>
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
@@ -59,12 +61,12 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#usage 🔨 ">Usage</a></li>
+    <li><a href="#roadmap 🗺️ ">Roadmap</a></li>
+    <li><a href="#contributing 👨‍👩‍👦‍👦 ">Contributing</a></li>
+    <li><a href="#license 🏳️ ">License</a></li>
+    <li><a href="#contact 🪪 ">Contact</a></li>
+    <li><a href="#acknowledgments 🦉">Acknowledgments</a></li>
   </ol>
 </details>
 
