@@ -1,6 +1,5 @@
 ﻿using ByteBrusher.Framework.Abstraction.Access;
 using ByteBrusher.Framework.Implementation.Access;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace ByteBrusher.Framework.Implementation;

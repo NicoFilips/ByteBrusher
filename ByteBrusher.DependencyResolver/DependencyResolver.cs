@@ -25,7 +25,7 @@ public class DependencyResolver
                                        services.AddOptions();
                                        services.AddLogging();
                                        services.AddUtilServices(configuration);
-                                        services.AddFrameworkServices(configuration);
+                                        services.AddFrameworkServices();
                                    })
                 .UseSerilog( (hostContext, loggerConfiguration) =>
                              {
