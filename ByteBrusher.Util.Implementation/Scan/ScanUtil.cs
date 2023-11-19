@@ -94,9 +94,7 @@ public class ScanUtil : IScanUtil
         }
         catch (Exception exception)
         {
-#pragma warning disable CA1848
             _logger.LogError(exception, "An exception occured {ErrorMessage}", exception.Message);
-#pragma warning restore CA1848
             return new Unspecified();
         }
     }

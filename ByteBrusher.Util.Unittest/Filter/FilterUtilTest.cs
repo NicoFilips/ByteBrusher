@@ -3,7 +3,6 @@ using ByteBrusher.Core.File.FileTypes;
 using ByteBrusher.Core.IOptions;
 using ByteBrusher.Util.Abstraction.Arguments;
 using ByteBrusher.Util.Implementation.Filter;
-using ByteBrusher.Util.Implementation.Scan;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Moq;
@@ -14,7 +13,7 @@ namespace ByteBrusher.Util.Unittest.Filter;
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "CA1707:Identifiers should not contain underscores", Justification = "Allowed for unit tests for clarity")]
 public class FilterUtilTest
 {
-    private Mock<ILogger<ScanUtil>> _mockLogger = null!;
+    private Mock<ILogger<FilterUtil>> _mockLogger = null!;
     private Mock<IOptions<FileExtensions>> _mockOptions= null!;
     private Mock<ICliOptions> _mockCliOptions= null!;
     private FilterUtil _filterUtil= null!;
@@ -22,11 +21,11 @@ public class FilterUtilTest
     [SetUp]
     public void Setup()
     {
-        _mockLogger = new Mock<ILogger<ScanUtil>>();
+        _mockLogger = new Mock<ILogger<FilterUtil>>();
         _mockOptions = new Mock<IOptions<FileExtensions>>();
         _mockCliOptions = new Mock<ICliOptions>();
 
-        _filterUtil = new FilterUtil(_mockLogger.Object, _mockOptions.Object, _mockCliOptions.Object);
+        _filterUtil = new FilterUtil(_mockCliOptions.Object, _mockLogger.Object);
     }
 
     // [Test]

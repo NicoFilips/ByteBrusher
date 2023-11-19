@@ -13,7 +13,7 @@ namespace ByteBrusher;
 /// <summary>
 /// Program.cs
 /// </summary>
-public class Program
+internal sealed class Program
 {
     /// <summary>
     /// Set your path manually here, if you dont want to
@@ -31,8 +31,6 @@ public class Program
     /// Flag: should found files be deleted
     /// </summary>
     public static bool DeleteFlag { get; }
-
-    private static List<FoundFile> foundFiles = null!;
 
     /// <summary>
     /// Gets or sets dI Object for ScanUtil Service
@@ -70,31 +68,31 @@ public class Program
         HashUtil = host.Services.GetRequiredService<IHashUtil>();
         DeleteUtil = host.Services.GetRequiredService<IDeleteUtil>();
 
-        Console.WriteLine("Validate CLI Arguments:");
+        _logger.LogInformation("Starting ByteBrusher ...");
+        _logger.LogInformation("Validate CLI Arguments:");
 
-        Console.WriteLine("Get Files ...");
-        foundFiles = ScanUtil.GetFileInfos(_pathToCleanUp).ToList();
-        Console.WriteLine("Found: " + foundFiles.Count + " files. Filtering out Images, Pictures and Videos now.");
+        _logger.LogInformation("Get Files ...");
+         var foundFiles = ScanUtil.GetFileInfos(_pathToCleanUp).ToList();
+        _logger.LogInformation("Found: {FoundFileCount} files. Filtering out Images, Pictures and Videos now.", foundFiles.Count);
 
         foundFiles = FilterUtil.FilterFiles(foundFiles);
-        Console.WriteLine("Filtered List with Console Arguments. Now we have : " + foundFiles.Count + " files left.");
+        _logger.LogInformation("Filtered List with Console Arguments. Now we have : {FoundFileCount} files left.", foundFiles.Count);
 
         Dictionary<string, List<FoundFile>> duplicates = HashUtil.GetDuplicatesAsync(foundFiles).Result;
-        Console.WriteLine("Found " + duplicates.Count + " duplicates.");
+        _logger.LogInformation("Found {DuplicatesCount} duplicates.", duplicates.Count);
 
         foreach (KeyValuePair<string, List<FoundFile>> duplicate in duplicates)
         {
             if (DeleteFlag)
             {
-                Console.WriteLine("Deleting Files now ...");
+                _logger.LogInformation("Deleting Files now ...");
                 DeleteUtil.TryDelete(duplicate.Value).SwitchFirst(
                                                             deleted => Console.WriteLine("Deletation worked"),
                                                             error => Console.WriteLine(error.Description));
-                Console.WriteLine("Deleted Files.");
+                _logger.LogInformation("Deleted Files.");
             }
         }
 
-        Console.WriteLine("---- < ByteBrusher finished > ----");
-        Console.ReadKey();
+        _logger.LogInformation("---- < ByteBrusher finished > ----");
     }
 }

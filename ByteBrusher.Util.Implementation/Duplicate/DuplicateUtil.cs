@@ -6,7 +6,7 @@ namespace ByteBrusher.Util.Implementation.Duplicate;
 
 public class DuplicateUtil : IDuplicateUtil
 {
-    private readonly ILogger<DuplicateUtil> _logger = null!;
+    private readonly ILogger<DuplicateUtil> _logger;
 
     public DuplicateUtil(ILogger<DuplicateUtil> logger)
     {

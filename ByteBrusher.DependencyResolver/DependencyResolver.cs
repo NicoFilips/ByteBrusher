@@ -11,8 +11,9 @@ using Serilog;
 namespace ByteBrusher.DependencyResolver;
 
 
-public class DependencyResolver
+public static class DependencyResolver
 {
+    private static readonly string _logPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Documents");
     public static IHostBuilder CreateHostBuilder(string[] args)
         =>
             Host.CreateDefaultBuilder(args)
@@ -33,7 +34,7 @@ public class DependencyResolver
                                     .ReadFrom.Configuration(hostContext.Configuration)
                                     .Enrich.FromLogContext()
                                     .WriteTo.Console(formatProvider: System.Globalization.CultureInfo.InvariantCulture)
-                                    .WriteTo.File("C://Users/public/Documents.txt", formatProvider: System.Globalization.CultureInfo.InvariantCulture);
+                                    .WriteTo.File("_logPath", formatProvider: System.Globalization.CultureInfo.InvariantCulture);
                              });
     private static CliOptions ParseCommandLineOptions(string[] args)
     {
