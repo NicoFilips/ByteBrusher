@@ -14,10 +14,14 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/NicoFilips/ByteBrusher/">
-    <img src="https://user-images.githubusercontent.com/35654361/283448124-805ac645-a568-42c4-8a1d-177070e4df59.png" alt="Logo" width="200" height="200">
-      Source: AI generated
-  </a>
+<a href="https://github.com/NicoFilips/ByteBrusher/">
+  <img src="https://user-images.githubusercontent.com/35654361/283448124-805ac645-a568-42c4-8a1d-177070e4df59.png" alt="Logo" width="200" height="200">
+</a>
+
+<blockquote>
+  <p>Source: AI generated</p>
+</blockquote>
+
 
  [![Build](https://github.com/NicoFilips/ByteBrusher/actions/workflows/build.yml/badge.svg)](https://github.com/NicoFilips/ByteBrusher/actions/workflows/build.yml)
  [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=NicoFilips_ByteBrusher&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=NicoFilips_ByteBrusher)
