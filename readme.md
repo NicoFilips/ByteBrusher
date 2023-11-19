@@ -8,9 +8,6 @@
 *** Thanks again! Now go create something AMAZING! :D
 -->
 
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -27,6 +24,7 @@
  [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=NicoFilips_ByteBrusher&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=NicoFilips_ByteBrusher)
  [![codecov](https://codecov.io/gh/NicoFilips/ByteBrusher/branch/main/graph/badge.svg?token=DR2EBIWK7B)](https://codecov.io/gh/NicoFilips/ByteBrusher)
  [![GitHub license](https://img.shields.io/github/license/NicoFilips/ByteBrusher)](https://github.com/NicoFilips/ByteBrusher/blob/main/LICENSE)
+ [![GitHub contributors](https://img.shields.io/github/contributors/NicoFilips/ByteBrusher)](https://GitHub.com/NicoFilips/ByteBrusher/graphs/contributors/)
 
   <h3 align="center">Byte Brusher</h3>
 
