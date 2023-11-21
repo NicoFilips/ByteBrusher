@@ -127,6 +127,15 @@ This section should list any major frameworks/libraries used to bootstrap your p
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 * [![JQuery][JQuery.com]][JQuery-url]
 
+* [![.NET][.NET-badge]][.NET-url]
+* [![ASP.NET Core][ASP.NET-Core-badge]][ASP.NET-Core-url]
+* [![Entity Framework Core][Entity-Framework-Core-badge]][Entity-Framework-Core-url]
+* [![Polly][Polly-badge]][Polly-url]
+* [![Serilog][Serilog-badge]][Serilog-url]
+* [![xUnit][xUnit-badge]][xUnit-url]
+* [![Moq][Moq-badge]][Moq-url]
+* [![AutoMapper][AutoMapper-badge]][AutoMapper-url]
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -252,6 +261,23 @@ Use this space to list resources you find helpful and would like to give credit 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+[.NET-badge]: # (Hier könnte der Link zum Badge-Bild für .NET eingefügt werden)
+[.NET-url]: https://dotnet.microsoft.com/
+[ASP.NET-Core-badge]: # (Hier könnte der Link zum Badge-Bild für ASP.NET Core eingefügt werden)
+[ASP.NET-Core-url]: https://dotnet.microsoft.com/apps/aspnet
+[Entity-Framework-Core-badge]: # (Hier könnte der Link zum Badge-Bild für Entity Framework Core eingefügt werden)
+[Entity-Framework-Core-url]: https://docs.microsoft.com/en-us/ef/core/
+[Polly-badge]: # (Hier könnte der Link zum Badge-Bild für Polly eingefügt werden)
+[Polly-url]: https://github.com/App-vNext/Polly
+[Serilog-badge]: # (Hier könnte der Link zum Badge-Bild für Serilog eingefügt werden)
+[Serilog-url]: https://serilog.net/
+[xUnit-badge]: # (Hier könnte der Link zum Badge-Bild für xUnit eingefügt werden)
+[xUnit-url]: https://xunit.net/
+[Moq-badge]: # (Hier könnte der Link zum Badge-Bild für Moq eingefügt werden)
+[Moq-url]: https://github.com/Moq/moq4
+[AutoMapper-badge]: # (Hier könnte der Link zum Badge-Bild für AutoMapper eingefügt werden)
+[AutoMapper-url]: https://automapper.org/
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
 [contributors-url]: https://github.com/NicoFilips/ByteBrusher/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
