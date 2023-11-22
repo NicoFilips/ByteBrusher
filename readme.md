@@ -25,7 +25,7 @@
  [![Build](https://github.com/NicoFilips/ByteBrusher/actions/workflows/build.yml/badge.svg)](https://github.com/NicoFilips/ByteBrusher/actions/workflows/build.yml)
  [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=NicoFilips_ByteBrusher&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=NicoFilips_ByteBrusher)
  [![codecov](https://codecov.io/gh/NicoFilips/ByteBrusher/branch/main/graph/badge.svg?token=DR2EBIWK7B)](https://codecov.io/gh/NicoFilips/ByteBrusher)
- [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+ [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
  [![GitHub contributors](https://img.shields.io/github/contributors/NicoFilips/ByteBrusher)](https://GitHub.com/NicoFilips/ByteBrusher/graphs/contributors/)
 
   <h3 align="center">Byte Brusher</h3>
@@ -264,7 +264,8 @@ Use this space to list resources you find helpful and would like to give credit 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[.NET-badge]: # (Hier könnte der Link zum Badge-Bild für .NET eingefügt werden)
+[CSHARP]: https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white
+[.NET-badge]: https://img.shields.io/badge/-.NET%206.0-blueviolet
 [.NET-url]: https://dotnet.microsoft.com/
 [ASP.NET-Core-badge]: # (Hier könnte der Link zum Badge-Bild für ASP.NET Core eingefügt werden)
 [ASP.NET-Core-url]: https://dotnet.microsoft.com/apps/aspnet
