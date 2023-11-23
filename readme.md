@@ -8,8 +8,6 @@
 *** Thanks again! Now go create something AMAZING! :D
 -->
 
-[![General badge](https://img.shields.io/badge/ProtonMail-8B89CC?style=for-the-badge&logo=protonmail&logoColor=white)]
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -242,7 +240,8 @@ Your Name - [@Nico Filips](https://www.linkedin.com/in/nicofilips/) - git@nicofi
 Project Link: [https://github.com/your_username/repo_name]([https://github.com/your_username/repo_name](https://github.com/NicoFilips/ByteBrusher))
 https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white
 
-![image](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)
+[![General badge](https://img.shields.io/badge/ProtonMail-8B89CC?style=for-the-badge&logo=protonmail&logoColor=white)(https://www.linkedin.com/in/nicofilips/)]
+[![image](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)(https://www.linkedin.com/in/nicofilips/)]
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
