@@ -240,7 +240,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 Your Name - [@Nico Filips](https://www.linkedin.com/in/nicofilips/) - git@nicofilips.de
 
 Project Link: [https://github.com/your_username/repo_name]([https://github.com/your_username/repo_name](https://github.com/NicoFilips/ByteBrusher))
+https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white
 
+![image](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
