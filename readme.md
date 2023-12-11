@@ -237,13 +237,10 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Your Name - [@Nico Filips](https://www.linkedin.com/in/nicofilips/) - git@nicofilips.de
 
-Project Link: [https://github.com/your_username/repo_name]([https://github.com/your_username/repo_name](https://github.com/NicoFilips/ByteBrusher))
-https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white
+### Connect with me:
 [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/nicofilips/)
-[![ProtonMail Badge](https://img.shields.io/badge/ProtonMail-8B89CC?style=for-the-badge&logo=protonmail&logoColor=white)](https://www.linkedin.com/in/nicofilips/)
+[![ProtonMail Badge](https://img.shields.io/badge/ProtonMail-8B89CC?style=for-the-badge&logo=protonmail&logoColor=white)](https://protonmail.com/)
 
-[![General badge](https://img.shields.io/badge/ProtonMail-8B89CC?style=for-the-badge&logo=protonmail&logoColor=white)(https://www.linkedin.com/in/nicofilips/)]
-[![image](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)(https://www.linkedin.com/in/nicofilips/)]
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
