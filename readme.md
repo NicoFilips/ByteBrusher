@@ -90,29 +90,25 @@ Use the `BLANK_README.md` to get started.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+```mermaid
 classDiagram
-    title Class-Architecture
-
-    class Program.cs {
+    class Program {
         -IScanUtil _scanUtil
         +IFilterUtil _filterUtil
     }
 
     class ScanUtil {
-        +IOptions<ScanUtil> _options
-        +ILogger<ScanUtil> _logger
         +ScanUtil(IOptions options, ILogger logger)
-        +IEnumerable<string> GetFiles()
+        +GetFiles()
     }
 
-    class Animal {
-        +main()
+    class FilterUtil {
+        +Filter()
     }
 
-    Program.cs <|-- ScanUtil : uses
-    Program.cs <|-- FilterUtil : uses
-    note right of ScanUtil : From Duck till Zebra
-    note right of Animal : can fly\ncan swim\ncan dive\ncan help in debugging
+    Program <|-- ScanUtil : uses
+    Program <|-- FilterUtil : uses
+```
 
 ### Built With
 
