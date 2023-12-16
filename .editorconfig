@@ -131,6 +131,9 @@ csharp_style_namespace_declarations = file_scoped:error
 # Analyzer
 dotnet_analyzer_diagnostic.category-style.severity = warning
 
+#IDE
+dotnet_diagnostic.CA1707.severity = none
+
 # IDE0055: Fix formatting
 dotnet_diagnostic.ide0055.severity = none
 
