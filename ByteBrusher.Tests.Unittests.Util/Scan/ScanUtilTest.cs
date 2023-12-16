@@ -9,7 +9,7 @@ using Microsoft.Extensions.Options;
 using Moq;
 using NUnit.Framework;
 
-namespace ByteBrusher.Util.Unittest.Scan;
+namespace ByteBrusher.Tests.Unittests.Util.Scan;
 
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "CA1707:Identifiers should not contain underscores", Justification = "Allowed for unit tests for clarity")]
 [TestFixture]

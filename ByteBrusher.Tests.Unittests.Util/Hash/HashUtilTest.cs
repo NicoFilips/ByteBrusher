@@ -7,9 +7,8 @@ using ByteBrusher.Core.File.FileTypes;
 using ByteBrusher.Util.Abstraction.Hash.Models;
 using Microsoft.Extensions.Logging;
 
-namespace ByteBrusher.Util.Unittest.Hash;
+namespace ByteBrusher.Tests.Unittests.Util.Hash;
 
-[System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "CA1707:Identifiers should not contain underscores", Justification = "Allowed for unit tests for clarity")]
 public class HashUtilTest
 {
     private Mock<IFileAbstraction> _fileStreamMock = new();

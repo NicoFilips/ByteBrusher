@@ -2,11 +2,12 @@
 using ByteBrusher.Util.Abstraction.Hash.Models;
 using ByteBrusher.Util.Implementation.Delete;
 using ErrorOr;
+using FluentAssertions;
 using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
 
-namespace ByteBrusher.Util.Unittest.Delete;
+namespace ByteBrusher.Tests.Unittests.Util.Delete;
 
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "CA1707:Identifiers should not contain underscores", Justification = "Allowed for unit tests for clarity")]
 public class DeleteUtilTest
@@ -35,7 +36,7 @@ public class DeleteUtilTest
         ErrorOr<Deleted> result = deleteUtil.TryDelete(duplicates);
 
         // Assert
-        Assert.IsTrue(result.IsError);
+        result.IsError.Should().BeTrue();
         Assert.That(result.FirstError.Code, Is.EqualTo("No duplicates found"));
     }
 
@@ -56,7 +57,7 @@ public class DeleteUtilTest
         ErrorOr<Deleted> result = deleteUtil.TryDelete(duplicates);
 
         // Assert
-        Assert.IsTrue(result.IsError);
-        Assert.That(result.FirstError.Code, Is.EqualTo("One or more files do not exist"));
+        result.IsError.Should().BeTrue();
+        result.FirstError.Code.Should().Be("One or more files do not exist");
     }
 }

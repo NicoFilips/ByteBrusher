@@ -1,9 +1,10 @@
 ﻿using ByteBrusher.Util.Implementation.Duplicate;
+using FluentAssertions;
 using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
 
-namespace ByteBrusher.Util.Unittest.Duplicate;
+namespace ByteBrusher.Tests.Unittests.Util.Duplicate;
 
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "CA1707:Identifiers should not contain underscores", Justification = "Allowed for unit tests for clarity")]
 public class DuplicateTest
@@ -25,11 +26,12 @@ public class DuplicateTest
     [Test]
     public void Should_ReturnEmptyList_When_FilesDoNotContainSuffixes()
     {
+        //
         var filesWithoutSuffixes = new List<string> { "video.mp4", "audio.mp3" };
         List<string> sortedList;
         sortedList = duplicateUtil.SortFiles(filesWithoutSuffixes, suffixes);
 
-        Assert.IsEmpty(sortedList);
+        sortedList.Should().BeEmpty();
     }
 
     [Test]
@@ -38,6 +40,6 @@ public class DuplicateTest
         var emptyFiles = new List<string>();
         List<string> sortedList = duplicateUtil.SortFiles(emptyFiles, suffixes);
 
-        Assert.IsEmpty(sortedList);
+        sortedList.Should().BeEmpty();
     }
 }

@@ -3,14 +3,14 @@ using ByteBrusher.Core.File.FileTypes;
 using ByteBrusher.Core.IOptions;
 using ByteBrusher.Util.Abstraction.Arguments;
 using ByteBrusher.Util.Implementation.Filter;
+using FluentAssertions;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Moq;
 using NUnit.Framework;
 
-namespace ByteBrusher.Util.Unittest.Filter;
+namespace ByteBrusher.Tests.Unittests.Util.Filter;
 
-[System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "CA1707:Identifiers should not contain underscores", Justification = "Allowed for unit tests for clarity")]
 public class FilterUtilTest
 {
     private Mock<ILogger<FilterUtil>> _mockLogger = null!;
@@ -84,7 +84,6 @@ public class FilterUtilTest
         bool result = _filterUtil.IncludeFile(file);
 
         // Assert
-        Assert.IsFalse(result);
+        result.Should().BeFalse();
     }
-
 }

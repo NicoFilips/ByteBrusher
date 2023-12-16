@@ -5,7 +5,7 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteBrusher", "ByteBrusher\ByteBrusher.csproj", "{79E67D0C-DE03-4D72-AD6B-6F0842E55542}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteBrusher.Integrationtest", "ByteBrusher.Integrationtest\ByteBrusher.Integrationtest.csproj", "{C7973995-9AC7-4697-9BFD-287E14FF9D66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteBrusher.Tests.Integrationstests", "ByteBrusher.Tests.Integrationstests\ByteBrusher.Tests.Integrationstests.csproj", "{C7973995-9AC7-4697-9BFD-287E14FF9D66}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Util", "Util", "{9BB57655-B8A6-403B-9A89-CA45946B492D}"
 EndProject
@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteBrusher.Util.Abstractio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteBrusher.Util.Implementation", "ByteBrusher.Util.Implementation\ByteBrusher.Util.Implementation.csproj", "{FC52F6C2-7119-4681-9197-5D8059AAE98D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteBrusher.Util.Unittest", "ByteBrusher.Util.Unittest\ByteBrusher.Util.Unittest.csproj", "{B05CD11A-D2BC-4626-9A4D-0A4B1134FB53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteBrusher.Tests.Unittests.Util", "ByteBrusher.Tests.Unittests.Util\ByteBrusher.Tests.Unittests.Util.csproj", "{B05CD11A-D2BC-4626-9A4D-0A4B1134FB53}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteBrusher.Core", "ByteBrusher.Records\ByteBrusher.Core.csproj", "{3D17507C-20EE-4D67-86A7-0FF3CCCE6965}"
 EndProject
@@ -24,6 +24,16 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteBrusher.Framework.Abstraction", "ByteBrusher.Framework.Abstraction\ByteBrusher.Framework.Abstraction.csproj", "{430E3991-4088-4F10-896A-6F0D959E4B5A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteBrusher.Framework.Implementation", "ByteBrusher.Framework.Implementation\ByteBrusher.Framework.Implementation.csproj", "{5D2891AE-03E0-42FB-8855-DA6CEDCAA3E0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{07E3C466-B3A9-44E2-B8C8-863DC7AC9906}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integrationtests", "Integrationtests", "{007B897D-FB13-43A5-9091-8DE278899DCD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unittests", "Unittests", "{CCEEC2CF-96DB-457C-AC1D-7BED436A68C1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SmokeTests", "SmokeTests", "{17DE1203-EF1D-43AB-B5D9-6DB5345DFF43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteBrusher.Tests.SmokeTests", "Tests\ByteBrusher.Tests.SmokeTests\ByteBrusher.Tests.SmokeTests.csproj", "{F2007AEC-AEDF-47D6-8789-92DBBD8F9B1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +77,10 @@ Global
 		{5D2891AE-03E0-42FB-8855-DA6CEDCAA3E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D2891AE-03E0-42FB-8855-DA6CEDCAA3E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D2891AE-03E0-42FB-8855-DA6CEDCAA3E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2007AEC-AEDF-47D6-8789-92DBBD8F9B1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2007AEC-AEDF-47D6-8789-92DBBD8F9B1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2007AEC-AEDF-47D6-8789-92DBBD8F9B1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2007AEC-AEDF-47D6-8789-92DBBD8F9B1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,9 +88,14 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{A900F412-9F1C-408B-8483-E498F5D10544} = {9BB57655-B8A6-403B-9A89-CA45946B492D}
 		{FC52F6C2-7119-4681-9197-5D8059AAE98D} = {9BB57655-B8A6-403B-9A89-CA45946B492D}
-		{B05CD11A-D2BC-4626-9A4D-0A4B1134FB53} = {9BB57655-B8A6-403B-9A89-CA45946B492D}
 		{430E3991-4088-4F10-896A-6F0D959E4B5A} = {D901FC30-B7E4-4C15-9356-CD19418EB6A2}
 		{5D2891AE-03E0-42FB-8855-DA6CEDCAA3E0} = {D901FC30-B7E4-4C15-9356-CD19418EB6A2}
+		{007B897D-FB13-43A5-9091-8DE278899DCD} = {07E3C466-B3A9-44E2-B8C8-863DC7AC9906}
+		{CCEEC2CF-96DB-457C-AC1D-7BED436A68C1} = {07E3C466-B3A9-44E2-B8C8-863DC7AC9906}
+		{B05CD11A-D2BC-4626-9A4D-0A4B1134FB53} = {CCEEC2CF-96DB-457C-AC1D-7BED436A68C1}
+		{C7973995-9AC7-4697-9BFD-287E14FF9D66} = {007B897D-FB13-43A5-9091-8DE278899DCD}
+		{17DE1203-EF1D-43AB-B5D9-6DB5345DFF43} = {07E3C466-B3A9-44E2-B8C8-863DC7AC9906}
+		{F2007AEC-AEDF-47D6-8789-92DBBD8F9B1D} = {17DE1203-EF1D-43AB-B5D9-6DB5345DFF43}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3852D14C-7C37-461C-8388-C147602DF905}

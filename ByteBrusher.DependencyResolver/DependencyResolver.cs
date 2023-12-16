@@ -36,13 +36,11 @@ public static class DependencyResolver
                                     .WriteTo.Console(formatProvider: System.Globalization.CultureInfo.InvariantCulture)
                                     .WriteTo.File("_logPath", formatProvider: System.Globalization.CultureInfo.InvariantCulture);
                              });
-    private static CliOptions ParseCommandLineOptions(string[] args)
+    public static CliOptions ParseCommandLineOptions(string[] args)
     {
         ParserResult<CliOptions>? parsedOptions = Parser.Default.ParseArguments<CliOptions>(args);
-        if (parsedOptions.Tag == ParserResultType.Parsed)
-            return ((Parsed<CliOptions>)parsedOptions).Value;
-
-        // Optional: Loggen oder eine Ausnahme werfen, wenn Sie Fehlerbehandlung hinzufügen möchten
-        throw new ArgumentNullException(nameof(args));
+        return parsedOptions.Tag == ParserResultType.Parsed
+            ? ((Parsed<CliOptions>)parsedOptions).Value
+            : throw new ArgumentNullException(nameof(args));
     }
 }
