@@ -13,7 +13,6 @@ public class DeleteUtilTest
 {
     private Mock<IFileAbstraction> fileAbstractionMock = new();
     private Mock<ILogger<DeleteUtil>> loggerMock = new();
-
     private DeleteUtil deleteUtil = null!;
 
     [SetUp]
