@@ -9,7 +9,6 @@ using NUnit.Framework;
 
 namespace ByteBrusher.Tests.Unittests.Util.Delete;
 
-[System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "CA1707:Identifiers should not contain underscores", Justification = "Allowed for unit tests for clarity")]
 public class DeleteUtilTest
 {
     private Mock<IFileAbstraction> fileAbstractionMock = new();

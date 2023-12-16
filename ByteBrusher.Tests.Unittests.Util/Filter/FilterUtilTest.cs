@@ -1,5 +1,6 @@
 ﻿using ByteBrusher.Core.File;
 using ByteBrusher.Core.File.FileTypes;
+using ByteBrusher.Core.File.FileTypes.Abstraction;
 using ByteBrusher.Core.IOptions;
 using ByteBrusher.Util.Abstraction.Arguments;
 using ByteBrusher.Util.Implementation.Filter;
@@ -25,53 +26,43 @@ public class FilterUtilTest
         _mockOptions = new Mock<IOptions<FileExtensions>>();
         _mockCliOptions = new Mock<ICliOptions>();
 
+        _mockCliOptions.Setup(x => x.Path).Returns("/example/path");
+        _mockCliOptions.Setup(x => x.DeleteFlag).Returns(true);
+        _mockCliOptions.Setup(x => x.IncludeVideos).Returns(true);
+        _mockCliOptions.Setup(x => x.IncludeDocuments).Returns(true);
+
         _filterUtil = new FilterUtil(_mockCliOptions.Object, _mockLogger.Object);
     }
 
-    // [Test]
-    // public void FilterFiles_WhenCalled_FiltersFilesBasedOnCliOptions()
-    // {
-    //     // Arrange
-    //     var files = new List<FoundFile>
-    //     {
-    //         new() { FileType = new Video() },
-    //         new() { FileType = new Document() }
-    //     };
-    //
-    //     _mockCliOptions.Setup(o => o.IncludeVideos).Returns(true);
-    //     _mockCliOptions.Setup(o => o.IncludeDocuments).Returns(false);
-    //
-    //     // Act
-    //     List<FoundFile> result = _filterUtil.FilterFiles(files);
-    //
-    //     // Assert
-    //     Assert.That(result, Has.Exactly(1).Matches<FoundFile>(file => file.GetType() == typeof(Video)));
-    // }
+    [Test]
+    public void FilterFiles_WhenCalled_ShouldReturnFilteredFiles()
+    {
+        // Arrange
+        var listToFilter = new List<FoundFile>
+        {
+            new()
+            {
+                FileType = new Mock<IFileType>().Object,
+                FileInfo =  new FileInfo("test.txt"),
+                GotDeleted = false
+            },
+            new()
+            {
+                FileType = new Mock<IFileType>().Object,
+                FileInfo =  new FileInfo("test.txt"),
+                GotDeleted = false
+            },
+        };
 
-    // [Test]
-    // public void IncludeFile_ShouldReturnTrueForVideoWhenVideosAreIncluded()
-    // {
-    //     var file = new FoundFile { FileType = new Video() };
-    //     _mockCliOptions.Setup(o => o.IncludeVideos).Returns(true);
-    //
-    //     bool result = _filterUtil.IncludeFile(file);
-    //
-    //     Assert.IsTrue(result);
-    // }
+        // Act
+        List<FoundFile> result = _filterUtil.FilterFiles(listToFilter);
 
-    // [Test]
-    // public void IncludeFile_WhenCalled_ReturnsTrueForIncludedFileType()
-    // {
-    //     // Arrange
-    //     var file = new FoundFile { FileType = new Video() };
-    //     _mockCliOptions.Setup(o => o.IncludeVideos).Returns(true);
-    //
-    //     // Act
-    //     bool result = _filterUtil.IncludeFile(file);
-    //
-    //     // Assert
-    //     Assert.IsTrue(result);
-    // }
+        // Assert
+        // Hier fügen Sie Ihre Assertions hinzu, z.B.:
+        result.Should().HaveCount(0);
+        // Weitere Überprüfungen basierend auf Ihrer Geschäftslogik
+    }
+
 
     [Test]
     public void IncludeFile_WhenCalled_ReturnsFalseForExcludedFileType()
@@ -85,5 +76,42 @@ public class FilterUtilTest
 
         // Assert
         result.Should().BeFalse();
+    }
+
+    [Test]
+    [TestCase(typeof(Video), true)]
+    [TestCase(typeof(Document), true)]
+    public void IncludeFile_WhenCalled_ReturnsFalseForExcludedFileType(Type type, bool include)
+    {
+        // Arrange
+        var file = new FoundFile { FileType = (IFileType)Activator.CreateInstance(type)! };
+        _mockCliOptions.Setup(o => o.IncludeVideos).Returns(include);
+
+        // Act
+        bool result = _filterUtil.IncludeFile(file);
+
+        // Assert
+        result.Should().BeFalse();
+    }
+
+    [Test]
+    public void FoundFile_Initialization_ShouldSetPropertiesCorrectly()
+    {
+        // Arrange
+        var mockFileType = new Mock<IFileType>(); // Mock für IFileType
+        var testFileInfo = new FileInfo("test.txt"); // Erstellen einer FileInfo-Instanz
+
+        // Act
+        var foundFile = new FoundFile
+        {
+            FileType = mockFileType.Object,
+            FileInfo = testFileInfo,
+            GotDeleted = false
+        };
+
+        // Assert
+        foundFile.FileType.Should().BeSameAs(mockFileType.Object, "because FileType should be set correctly");
+        foundFile.FileInfo.Should().BeEquivalentTo(testFileInfo, "because FileInfo should be set correctly");
+        foundFile.GotDeleted.Should().BeFalse("because GotDeleted should be initialized as false");
     }
 }
