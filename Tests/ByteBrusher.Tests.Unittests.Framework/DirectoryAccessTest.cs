@@ -33,6 +33,34 @@ public class DirectoryAccessTest
     }
 
     [Test]
+    public void OpenRead_WhenFileExists_ReturnsReadableStream()
+    {
+        // Arrange
+        string tempFile = Path.GetTempFileName();
+        try
+        {
+            // Erstellen einer Testdatei
+            File.WriteAllText(tempFile, "Test content");
+
+            // Act
+            Stream stream = _directoryAccess.OpenRead(tempFile);
+
+            // Assert
+            Assert.That(stream, Is.Not.Null);
+            Assert.That(stream.CanRead, Is.True);
+
+            // Optional: Lesen des Streams, um zu überprüfen, ob der Inhalt korrekt ist
+            using var reader = new StreamReader(stream);
+            string content = reader.ReadToEnd();
+            Assert.That(content, Is.EqualTo("Test content"));
+        }
+        finally
+        {
+            File.Delete(tempFile);
+        }
+    }
+
+    [Test]
     public void GetFiles_WhenDirectoryEmpty_returnEmptyList()
     {
         // Arrange
