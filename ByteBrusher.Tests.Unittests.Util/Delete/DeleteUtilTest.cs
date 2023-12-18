@@ -1,4 +1,5 @@
 ﻿using ByteBrusher.Core.File;
+using ByteBrusher.Core.File.FileTypes;
 using ByteBrusher.Util.Abstraction.Hash.Models;
 using ByteBrusher.Util.Implementation.Delete;
 using ErrorOr;
@@ -11,16 +12,16 @@ namespace ByteBrusher.Tests.Unittests.Util.Delete;
 
 public class DeleteUtilTest
 {
-    private Mock<IFileAbstraction> fileAbstractionMock = new();
-    private Mock<ILogger<DeleteUtil>> loggerMock = new();
-    private DeleteUtil deleteUtil = null!;
+    private Mock<IFileAbstraction> _fileAbstractionMock = new();
+    private Mock<ILogger<DeleteUtil>> _loggerMock = new();
+    private DeleteUtil _deleteUtil = null!;
 
     [SetUp]
     public void Setup()
     {
-        loggerMock = new Mock<ILogger<DeleteUtil>>();
-        fileAbstractionMock = new Mock<IFileAbstraction>();
-        deleteUtil = new DeleteUtil(loggerMock.Object, fileAbstractionMock.Object);
+        _loggerMock = new Mock<ILogger<DeleteUtil>>();
+        _fileAbstractionMock = new Mock<IFileAbstraction>();
+        _deleteUtil = new DeleteUtil(_loggerMock.Object, _fileAbstractionMock.Object);
     }
 
 
@@ -31,7 +32,7 @@ public class DeleteUtilTest
         var duplicates = new List<FoundFile>();
 
         // Act
-        ErrorOr<Deleted> result = deleteUtil.TryDelete(duplicates);
+        ErrorOr<Deleted> result = _deleteUtil.TryDelete(duplicates);
 
         // Assert
         result.IsError.Should().BeTrue();
@@ -42,20 +43,77 @@ public class DeleteUtilTest
     public void TryDelete_ShouldReturnNotFoundErrorWhenFileDoesNotExist()
     {
         // Arrange
-        var loggerMock = new Mock<ILogger<DeleteUtil>>();
-        var fileAbstractionMock = new Mock<IFileAbstraction>();
-        var deleteUtil = new DeleteUtil(loggerMock.Object, fileAbstractionMock.Object);
-
         var nonExistentFile = new FoundFile { FileInfo = new FileInfo("nonexistentfile.txt") };
         var duplicates = new List<FoundFile> { nonExistentFile };
 
-        fileAbstractionMock.Setup(fa => fa.Exists(nonExistentFile.FileInfo.FullName)).Returns(false);
+        _fileAbstractionMock.Setup(fa => fa.Exists(nonExistentFile.FileInfo.FullName)).Returns(false);
 
         // Act
-        ErrorOr<Deleted> result = deleteUtil.TryDelete(duplicates);
+        ErrorOr<Deleted> result = _deleteUtil.TryDelete(duplicates);
 
         // Assert
         result.IsError.Should().BeTrue();
         result.FirstError.Code.Should().Be("One or more files do not exist");
+    }
+
+    [Test]
+    public void TryDelete_ShouldReturnErrorWhenNoDuplicates()
+    {
+        ErrorOr<Deleted> result = _deleteUtil.TryDelete(new List<FoundFile>());
+
+        result.IsError.Should().Be(true);
+        result.FirstError.Code.Should().Be("No duplicates found");
+    }
+
+    [Test]
+    public void TryDelete_ShouldReturnErrorWhenFileDoesNotExist()
+    {
+        var files = new List<FoundFile>
+        {
+            new() { FileInfo  = new FileInfo("file1.txt"), FileType = new Video() },
+            new() { FileInfo = new FileInfo("file2.txt"), FileType = new Image() },
+        };
+
+        _fileAbstractionMock.Setup(f => f.Exists(It.IsAny<string>())).Returns(false);
+
+        ErrorOr<Deleted> result = _deleteUtil.TryDelete(files);
+
+        result.IsError.Should().Be(true);
+        result.FirstError.Code.Should().Be("One or more files do not exist");
+    }
+
+    [Test]
+    public void TryDelete_ShouldDeleteFilesAndReturnSuccess()
+    {
+        var files = new List<FoundFile>
+        {
+            new() { FileInfo  = new FileInfo("file1.txt"), FileType = new Video() },
+            new() { FileInfo = new FileInfo("file2.txt"), FileType = new Image() },
+        };
+
+        _fileAbstractionMock.Setup(f => f.Exists(It.IsAny<string>())).Returns(true);
+
+        ErrorOr<Deleted> result = _deleteUtil.TryDelete(files);
+
+        result.IsError.Should().Be(false);
+        _fileAbstractionMock.Verify(f => f.Delete(It.IsAny<string>()), Times.Exactly(files.Count));
+    }
+
+    [Test]
+    public void TryDelete_ShouldReturnErrorOnException()
+    {
+        var duplicates = new List<FoundFile>
+        {
+            new() { FileInfo  = new FileInfo("file1.txt"), FileType = new Video() },
+            new() { FileInfo = new FileInfo("file2.txt"), FileType = new Image() },
+        };
+
+        _fileAbstractionMock.Setup(f => f.Exists(It.IsAny<string>())).Returns(true);
+        _fileAbstractionMock.Setup(f => f.Delete(It.IsAny<string>())).Throws(new FileNotFoundException());
+
+        ErrorOr<Deleted> result = _deleteUtil.TryDelete(duplicates);
+
+        result.IsError.Should().Be(true);
+        result.FirstError.Code.Should().Be("Unable to find the specified file.");
     }
 }
