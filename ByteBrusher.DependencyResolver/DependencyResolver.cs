@@ -27,6 +27,7 @@ public static class DependencyResolver
                                        services.AddLogging();
                                        services.AddUtilServices(configuration);
                                         services.AddFrameworkServices();
+                                        services.AddByteBrusher();
                                    })
                 .UseSerilog( (hostContext, loggerConfiguration) =>
                              {

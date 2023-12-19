@@ -11,7 +11,7 @@ public sealed record TemporaryDirectory : IDisposable
     }
 
     public static TemporaryDirectory Create(string prefix = "_bytebrusher_unit_test") => new(prefix);
-    public static string CreateRandDirectoryName(string prefix) => string.Join("_", prefix, Path.GetRandomFileName());
+    private static string CreateRandDirectoryName(string prefix) => string.Join("_", prefix, Path.GetRandomFileName());
 
     public void Dispose()
     {

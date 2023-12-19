@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteBrusher", "ByteBrusher\ByteBrusher.csproj", "{79E67D0C-DE03-4D72-AD6B-6F0842E55542}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteBrusher.CLI", "ByteBrusher.CLI\ByteBrusher.CLI.csproj", "{79E67D0C-DE03-4D72-AD6B-6F0842E55542}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteBrusher.Tests.Integrationstests", "ByteBrusher.Tests.Integrationstests\ByteBrusher.Tests.Integrationstests.csproj", "{C7973995-9AC7-4697-9BFD-287E14FF9D66}"
 EndProject
@@ -40,6 +40,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteBrusher.Tests.Util", "Tests\ByteBrusher.Tests.Util\ByteBrusher.Tests.Util.csproj", "{27C1A4A3-E93F-4C63-B5A1-6ACEA1BD5239}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteBrusher.Tests.Unittests.Framework", "Tests\ByteBrusher.Tests.Unittests.Framework\ByteBrusher.Tests.Unittests.Framework.csproj", "{51956A7B-88F2-422D-A702-1B98D77EA7B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteBrusher", "ByteBrusher\ByteBrusher.csproj", "{FA8626C2-68F6-452E-962B-A5F37EB006F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,6 +97,10 @@ Global
 		{51956A7B-88F2-422D-A702-1B98D77EA7B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51956A7B-88F2-422D-A702-1B98D77EA7B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51956A7B-88F2-422D-A702-1B98D77EA7B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA8626C2-68F6-452E-962B-A5F37EB006F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA8626C2-68F6-452E-962B-A5F37EB006F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA8626C2-68F6-452E-962B-A5F37EB006F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA8626C2-68F6-452E-962B-A5F37EB006F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

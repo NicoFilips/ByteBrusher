@@ -5,7 +5,8 @@ using Microsoft.Extensions.Logging;
 
 namespace ByteBrusher.Util.Implementation.Hash;
 
-public class HashUtil : IHashUtil
+public class HashUtil :
+    IHashUtil
 {
     private ILogger<HashUtil> Logger { get; init; }
     private IFileAbstraction FileStream { get; set; }

@@ -10,5 +10,4 @@ public interface IDeleteUtil
     /// </summary>
     /// <returns>Monad of the result</returns>
     public ErrorOr<Deleted> TryDelete(List<FoundFile> duplicates);
-
 }

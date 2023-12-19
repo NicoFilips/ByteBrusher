@@ -10,4 +10,8 @@
       <PackageReference Include="NUnit" Version="4.0.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\ByteBrusher.Records\ByteBrusher.Core.csproj" />
+    </ItemGroup>
+
 </Project>
