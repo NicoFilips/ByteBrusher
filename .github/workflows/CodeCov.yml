@@ -24,7 +24,7 @@ jobs:
       run: dotnet build --configuration Release --no-restore
 
     - name: Test
-      run: dotnet test --no-restore --verbosity normal --collect:"XPlat Code Coverage" /p:Exclude="[ByteBrusher.Records*]*"
+      run: dotnet test --no-restore --verbosity normal --collect:"XPlat Code Coverage" /p:Exclude="[ByteBrusher.Records]*,[ByteBrusher.Tests]*"
 
     - name: Install ReportGenerator
       run: dotnet tool install --global dotnet-reportgenerator-globaltool
