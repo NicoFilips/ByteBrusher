@@ -1,3 +1,4 @@
+using ByteBrusher.Util.Abstraction.Arguments;
 using ByteBrusher.Util.Implementation.Arguments;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,9 +35,10 @@ public class StartUpTests
         {
             ILogger? logger = host.Services.GetService<ILogger>();
             logger.Should().NotBeNull("because a logger service should be available in the host services");
-
-            // Optional: Add more checks for other specific services
-            // ...
+            ICliOptions? cliOptions = host.Services.GetService<ICliOptions>();
+            cliOptions.Should().NotBeNull("because a cliOptions service should be available in the host services");
+            IByteBrusherClient? byteBrusherClient = host.Services.GetService<IByteBrusherClient>();
+            byteBrusherClient.Should().NotBeNull("because a byteBrusherClient service should be available in the host services");
         }
     }
 
