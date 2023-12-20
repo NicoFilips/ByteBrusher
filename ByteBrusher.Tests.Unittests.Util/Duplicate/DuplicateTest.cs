@@ -26,7 +26,6 @@ public class DuplicateTest
     [Test]
     public void Should_ReturnEmptyList_When_FilesDoNotContainSuffixes()
     {
-        //
         var filesWithoutSuffixes = new List<string> { "video.mp4", "audio.mp3" };
         List<string> sortedList;
         sortedList = duplicateUtil.SortFiles(filesWithoutSuffixes, suffixes);
@@ -41,5 +40,35 @@ public class DuplicateTest
         List<string> sortedList = duplicateUtil.SortFiles(emptyFiles, suffixes);
 
         sortedList.Should().BeEmpty();
+    }
+
+    [Test]
+    public void SortList_Should_ReturnEmptyList_When_NoFilesMatchSuffixes()
+    {
+        // Arrange
+        var suffixes = new List<string> { "txt", "doc" };
+        var files = new List<string> { "file1.jpg", "file2.png" };
+        var expected = new List<string>();
+
+        // Act
+        List<string> result = duplicateUtil.SortList(suffixes, files);
+
+        // Assert
+        result.Should().BeEquivalentTo(expected);
+    }
+
+    [Test]
+    public void SortList_Should_ReturnFilesWithSpecifiedSuffixes()
+    {
+        // Arrange
+        var suffixes = new List<string> { "txt", "doc" };
+        var files = new List<string> { "file1.txt", "file2.jpg", "file3.doc", "file4.docx" };
+        var expected = new List<string> { "file1.txt", "file3.doc" };
+
+        // Act
+        List<string> result = duplicateUtil.SortList(suffixes, files);
+
+        // Assert
+        result.Should().BeEquivalentTo(expected);
     }
 }
