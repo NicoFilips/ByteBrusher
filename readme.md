@@ -114,16 +114,14 @@ classDiagram
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+* [![.NET](https://img.shields.io/badge/.NET-8-512BD4?style=for-the-badge&logo=.net&logoColor=white)][.NET-url]
+* [![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)][CSharp-url]
+* [![Serilog](https://img.shields.io/badge/Serilog-FF33CC?style=for-the-badge)][Serilog-url]
+* [![Polly](https://img.shields.io/badge/Polly-FF69B4?style=for-the-badge)][Polly-url]
+* [![NUnit](https://img.shields.io/badge/NUnit-02569B?style=for-the-badge&logo=nunit&logoColor=white)][NUnit-url]
+* [![Moq](https://img.shields.io/badge/Moq-02569B?style=for-the-badge&logo=moq&logoColor=white)][Moq-url]
 
-* [![.NET][.NET-badge]][.NET-url]
+* [![.NET-badge]][.NET-url]
 * [![ASP.NET Core][ASP.NET-Core-badge]][ASP.NET-Core-url]
 * [![Entity Framework Core][Entity-Framework-Core-badge]][Entity-Framework-Core-url]
 * [![Polly][Polly-badge]][Polly-url]
