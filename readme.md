@@ -114,21 +114,14 @@ classDiagram
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-* [![.NET](https://img.shields.io/badge/.NET-8-512BD4?style=for-the-badge&logo=.net&logoColor=white)][.NET-url]
-* [![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)][CSharp-url]
-* [![Serilog](https://img.shields.io/badge/Serilog-FF33CC?style=for-the-badge)][Serilog-url]
-* [![Polly](https://img.shields.io/badge/Polly-FF69B4?style=for-the-badge)][Polly-url]
-* [![NUnit](https://img.shields.io/badge/NUnit-02569B?style=for-the-badge&logo=nunit&logoColor=white)][NUnit-url]
-* [![Moq](https://img.shields.io/badge/Moq-02569B?style=for-the-badge&logo=moq&logoColor=white)][Moq-url]
-
-* [![.NET-badge]][.NET-url]
-* [![ASP.NET Core][ASP.NET-Core-badge]][ASP.NET-Core-url]
-* [![Entity Framework Core][Entity-Framework-Core-badge]][Entity-Framework-Core-url]
-* [![Polly][Polly-badge]][Polly-url]
-* [![Serilog][Serilog-badge]][Serilog-url]
-* [![xUnit][xUnit-badge]][xUnit-url]
-* [![Moq][Moq-badge]][Moq-url]
-* [![AutoMapper][AutoMapper-badge]][AutoMapper-url]
+| Technology | Logo |
+|------------|------|
+| .NET 6     | ![.NET Logo](https://img.shields.io/badge/.NET-8-512BD4?style=for-the-badge&logo=.net&logoColor=white) |
+| C#         | ![C# Logo](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white) |
+| Serilog    | ![Serilog Logo](https://img.shields.io/badge/Serilog-FF33CC?style=for-the-badge) |
+| Polly      | ![Polly Logo](https://img.shields.io/badge/Polly-FF69B4?style=for-the-badge) |
+| NUnit      | ![NUnit Logo](https://img.shields.io/badge/NUnit-02569B?style=for-the-badge&logo=nunit&logoColor=white) |
+| Moq        | ![Moq Logo](https://img.shields.io/badge/Moq-02569B?style=for-the-badge&logo=moq&logoColor=white) |
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
