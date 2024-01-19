@@ -181,7 +181,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 - [x] Add Dependency Injection
 - [x] Add and Handle CLI Arguments
 - [x] Add Appsettings with IConfiguration
-- [ ] Add NLog
+- [x] Add NLog
 - [ ] Use ML.Net to find redundant Documents
     - [ ] Memetemplates
     - [ ] Duplicates
