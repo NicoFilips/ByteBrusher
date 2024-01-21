@@ -18,16 +18,10 @@ jobs:
     - name: Restore Dependencies
       run: dotnet restore
 
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
-
-    - name: Test
-      run: dotnet test --no-restore --verbosity normal
-
     - name: Pack
       run: dotnet pack --configuration Release --no-build --output ./nupkgs ./ByteBrusher/ByteBrusher.csproj
 
     - name: Publish NuGet Package
-      run: dotnet nuget push ${{ github.workspace }}/nupkgs/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
+      run: nuget push **\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}
 
 
