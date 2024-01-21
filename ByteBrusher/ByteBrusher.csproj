@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <PackageId>ByteBrusher</PackageId>
+    <Version>8.0.1</Version>
     <ImplicitUsings>enable</ImplicitUsings>
     <Authors>Nico Filips</Authors>
     <Description>Little Project to brush up your Collection of photos, videos, documents and so on. Keep your Desktop tidy!</Description>
