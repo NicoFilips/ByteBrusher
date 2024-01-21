@@ -15,7 +15,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '6.0.x' # Ändere dies entsprechend deiner .NET-Version
+        dotnet-version: '8.0.x' # Ändere dies entsprechend deiner .NET-Version
 
     - name: Define Package Version
       id: package_version
