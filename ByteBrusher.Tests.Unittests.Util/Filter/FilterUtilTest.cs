@@ -16,7 +16,7 @@ public class FilterUtilTest
 {
     private Mock<ILogger<FilterUtil>> _mockLogger = null!;
     private Mock<IOptions<FileExtensions>> _mockOptions= null!;
-    private Mock<ByteBrusherParams> _mockCliOptions= null!;
+    private ByteBrusherParams _mockParams= null!;
     private FilterUtil _filterUtil= null!;
 
     [SetUp]
@@ -24,14 +24,17 @@ public class FilterUtilTest
     {
         _mockLogger = new Mock<ILogger<FilterUtil>>();
         _mockOptions = new Mock<IOptions<FileExtensions>>();
-        _mockCliOptions = new Mock<ByteBrusherParams>();
+        _mockParams = new ByteBrusherParams();
 
-        _mockCliOptions.Setup(x => x.Path).Returns("/example/path");
-        _mockCliOptions.Setup(x => x.DeleteFlag).Returns(true);
-        _mockCliOptions.Setup(x => x.IncludeVideos).Returns(true);
-        _mockCliOptions.Setup(x => x.IncludeDocuments).Returns(true);
+        _mockParams = new ByteBrusherParams
+        {
+            Path = "/example/path",
+            DeleteFlag = true,
+            IncludeVideos = true,
+            IncludeDocuments = true
+        };
 
-        _filterUtil = new FilterUtil(_mockCliOptions.Object, _mockLogger.Object);
+        _filterUtil = new FilterUtil(_mockParams, _mockLogger.Object);
     }
 
     [Test]
@@ -69,7 +72,7 @@ public class FilterUtilTest
     {
         // Arrange
         var file = new FoundFile { FileType = new Document() };
-        _mockCliOptions.Setup(o => o.IncludeDocuments).Returns(false);
+        _mockParams.IncludeDocuments = false;
 
         // Act
         bool result = _filterUtil.IncludeFile(file);
@@ -85,7 +88,7 @@ public class FilterUtilTest
     {
         // Arrange
         var file = new FoundFile { FileType = (IFileType)Activator.CreateInstance(type)! };
-        _mockCliOptions.Setup(o => o.IncludeVideos).Returns(include);
+        _mockParams.IncludeVideos = include;
 
         // Act
         bool result = _filterUtil.IncludeFile(file);

@@ -1,6 +1,6 @@
 namespace ByteBrusher.Core.Parameter;
 
-public class ByteBrusherParams
+public record ByteBrusherParams
 {
     public string Path { get; set; } = string.Empty;
 
