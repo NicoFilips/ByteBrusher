@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
+    <IsPackable>true</IsPackable>
     <PackageId>ByteBrusher</PackageId>
     <Version>8.0.1</Version>
     <ImplicitUsings>enable</ImplicitUsings>
