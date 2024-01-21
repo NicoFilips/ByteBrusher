@@ -31,5 +31,6 @@ jobs:
       run: ls ./nupkgs
       
     - name: Publish NuGet Package
-      run: dotnet nuget push ./nupkgs/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ${{ github.workspace }}/nupkgs/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
+
 
