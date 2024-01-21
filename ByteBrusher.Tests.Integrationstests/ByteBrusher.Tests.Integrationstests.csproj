@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
@@ -26,7 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ByteBrusher.DependencyResolver\ByteBrusher.DependencyResolver.csproj" />
     <ProjectReference Include="..\Tests\ByteBrusher.Tests.Util\ByteBrusher.Tests.Util.csproj" />
   </ItemGroup>
 

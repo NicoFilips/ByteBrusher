@@ -19,9 +19,9 @@ public class ScanutilTest
     private readonly Mock<IOptions<FileExtensions>> _mockConfig = new();
     private readonly Mock<IDirectoryAccess> _mockDirectoryAccess = new();
     private ScanUtil _scanUtil = null!;
-    private static readonly string[] vidSuffix = new[] { ".mp4", ".avi", ".mkv", ".mov", ".wmv", ".flv", ".webm" };
-    private static readonly string[] imgSuffix = new[] { ".png", ".jpg", ".jpeg", ".gif", ".bmp", ".svg", ".tiff", ".tif" };
-    private static readonly string[] docSuffix = new[] { ".pdf", ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx", ".txt", ".rtf", ".odt", ".ods", ".odp", ".xml", ".csv" };
+    private static readonly string[] vidSuffix = [".mp4", ".avi", ".mkv", ".mov", ".wmv", ".flv", ".webm"];
+    private static readonly string[] imgSuffix = [".png", ".jpg", ".jpeg", ".gif", ".bmp", ".svg", ".tiff", ".tif"];
+    private static readonly string[] docSuffix = [".pdf", ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx", ".txt", ".rtf", ".odt", ".ods", ".odp", ".xml", ".csv"];
 
     [SetUp]
     public void Setup()
@@ -33,7 +33,7 @@ public class ScanutilTest
             ImageSuffix = imgSuffix,
             DocumentSuffix = docSuffix
         });
-        _mockDirectoryAccess.Setup(ap => ap.GetFilesInPath(It.IsAny<string>())).Returns(new List<string>());
+        _mockDirectoryAccess.Setup(ap => ap.GetFilesInPath(It.IsAny<string>())).Returns([]);
         _scanUtil = new ScanUtil(_mockLogger.Object, _mockDirectoryAccess.Object,  _mockConfig.Object);
     }
 

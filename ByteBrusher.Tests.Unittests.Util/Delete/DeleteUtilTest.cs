@@ -26,7 +26,7 @@ public class DeleteUtilTest
 
 
     [Test]
-    public void TryDelete_ShouldReturnErrorWhenDuplicatesIsEmpty()
+    public void TryDelete_ShouldReturnError_WhenDuplicatesIsEmpty()
     {
         // Arrange
         var duplicates = new List<FoundFile>();
@@ -40,7 +40,7 @@ public class DeleteUtilTest
     }
 
     [Test]
-    public void TryDelete_ShouldReturnNotFoundErrorWhenFileDoesNotExist()
+    public void TryDelete_ShouldReturnNotFoundError_WhenFileDoesNotExist()
     {
         // Arrange
         var nonExistentFile = new FoundFile { FileInfo = new FileInfo("nonexistentfile.txt") };
@@ -57,16 +57,16 @@ public class DeleteUtilTest
     }
 
     [Test]
-    public void TryDelete_ShouldReturnErrorWhenNoDuplicates()
+    public void TryDelete_ShouldReturnError_WhenNoDuplicates()
     {
-        ErrorOr<Deleted> result = _deleteUtil.TryDelete(new List<FoundFile>());
+        ErrorOr<Deleted> result = _deleteUtil.TryDelete([]);
 
         result.IsError.Should().Be(true);
         result.FirstError.Code.Should().Be("No duplicates found");
     }
 
     [Test]
-    public void TryDelete_ShouldReturnErrorWhenFileDoesNotExist()
+    public void TryDelete_ShouldReturnError_WhenFileDoesNotExist()
     {
         var files = new List<FoundFile>
         {

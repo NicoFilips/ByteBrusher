@@ -5,17 +5,11 @@ using Microsoft.Extensions.Logging;
 
 namespace ByteBrusher.Util.Implementation.Hash;
 
-public class HashUtil :
+public class HashUtil(ILogger<HashUtil> logger, IFileAbstraction fileStream) :
     IHashUtil
 {
-    private ILogger<HashUtil> Logger { get; init; }
-    private IFileAbstraction FileStream { get; set; }
-
-    public HashUtil(ILogger<HashUtil> logger, IFileAbstraction fileStream)
-    {
-        this.Logger = logger;
-        FileStream = fileStream;
-    }
+    private ILogger<HashUtil> Logger { get; init; } = logger;
+    private IFileAbstraction FileStream { get; set; } = fileStream;
 
     public async Task<string> CalculateChecksumAsync(string file)
     {
@@ -48,7 +42,7 @@ public class HashUtil :
                         if (fileHashes.TryGetValue(file.FileInfo.FullName, out List<FoundFile>? value))
                             value.Add(fileToCompare);
                         else
-                            fileHashes[file.FileInfo.FullName] = new List<FoundFile> { new() { FileInfo = fileToCompare.FileInfo, FileType = fileToCompare.FileType } };
+                            fileHashes[file.FileInfo.FullName] = [new() { FileInfo = fileToCompare.FileInfo, FileType = fileToCompare.FileType }];
                     }
                 }
             }

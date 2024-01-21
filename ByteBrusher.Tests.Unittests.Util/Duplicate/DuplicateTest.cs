@@ -19,8 +19,8 @@ public class DuplicateTest
     {
         loggerMock = new Mock<ILogger<DuplicateUtil>>();
         duplicateUtil = new DuplicateUtil(loggerMock.Object);
-        suffixes = new List<string> { ".jpg", ".png", ".txt" };
-        files = new List<string> { "image.jpg", "document.txt", "video.mp4", "photo.png" };
+        suffixes = [".jpg", ".png", ".txt"];
+        files = ["image.jpg", "document.txt", "video.mp4", "photo.png"];
     }
 
     [Test]

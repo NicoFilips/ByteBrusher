@@ -38,7 +38,7 @@ public class FoundFilesUtil
             }
             else
             {
-                duplicateFiles.Add(file.FileInfo.Name, new List<FoundFile> { file });
+                duplicateFiles.Add(file.FileInfo.Name, new List<FoundFile> {file});
             }
         }
         return duplicateFiles;
@@ -64,7 +64,7 @@ public class FoundFilesUtil
         foreach (FoundFile file in files)
         {
             CreateDuplicateFileEntry(file.FileInfo.Name, file.FileInfo.DirectoryName, file.FileType);
-            duplicateFiles.TryAdd(file.FileInfo.Name, new List<FoundFile> { file });
+            duplicateFiles.TryAdd(file.FileInfo.Name, new List<FoundFile> {file});
         }
         return duplicateFiles;
     }
