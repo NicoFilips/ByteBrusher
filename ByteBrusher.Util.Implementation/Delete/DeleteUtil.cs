@@ -6,16 +6,10 @@ using ByteBrusher.Util.Abstraction.Delete;
 
 namespace ByteBrusher.Util.Implementation.Delete;
 
-public class DeleteUtil : IDeleteUtil
+public class DeleteUtil(ILogger<DeleteUtil> logger, IFileAbstraction fileAbstraction) : IDeleteUtil
 {
-    private IFileAbstraction FileAbstraction { get; init; }
-    private ILogger<DeleteUtil> Logger { get; init; }
-
-    public DeleteUtil(ILogger<DeleteUtil> logger, IFileAbstraction fileAbstraction)
-    {
-        FileAbstraction = fileAbstraction;
-        Logger = logger;
-    }
+    private IFileAbstraction FileAbstraction { get; init; } = fileAbstraction;
+    private ILogger<DeleteUtil> Logger { get; init; } = logger;
 
     public ErrorOr<Deleted> TryDelete(List<FoundFile> duplicates)
     {

@@ -146,6 +146,9 @@ dotnet_diagnostic.ide0011.severity = none
 # IDE0024: Use expression body for operator 
 dotnet_diagnostic.ide0024.severity = none
 
+# IDE0028: Use collection initializer
+dotnet_diagnostic.IDE0028.severity = suggestion
+
 # IDE0058: Expression value is never used
 dotnet_diagnostic.ide0058.severity = none
 

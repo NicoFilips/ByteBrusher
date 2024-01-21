@@ -23,7 +23,7 @@ public class HashUtilTest
         _fileStreamMock.Setup(x => x.StartStream(It.IsAny<string>()))
                        .Returns(() =>
                                 {
-                                    return new MemoryStream(Array.Empty<byte>());
+                                    return new MemoryStream([]);
                                 });
         var hashUtil = new HashUtil( _logger.Object,_fileStreamMock.Object);
 
@@ -59,7 +59,7 @@ public class HashUtilTest
         };
 
         _fileStreamMock.Setup(x => x.StartStream(It.IsAny<string>()))
-                       .Returns(() => new MemoryStream(Array.Empty<byte>()));
+                       .Returns(() => new MemoryStream([]));
 
         // Act
         HashUtil hashUtil = new( _logger.Object,_fileStreamMock.Object);

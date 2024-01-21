@@ -2,7 +2,7 @@
 using ByteBrusher.Core.File.FileTypes;
 using ByteBrusher.Core.File.FileTypes.Abstraction;
 using ByteBrusher.Core.IOptions;
-using ByteBrusher.Util.Abstraction.Arguments;
+using ByteBrusher.Core.Parameter;
 using ByteBrusher.Util.Implementation.Filter;
 using FluentAssertions;
 using Microsoft.Extensions.Logging;
@@ -16,7 +16,7 @@ public class FilterUtilTest
 {
     private Mock<ILogger<FilterUtil>> _mockLogger = null!;
     private Mock<IOptions<FileExtensions>> _mockOptions= null!;
-    private Mock<ICliOptions> _mockCliOptions= null!;
+    private Mock<ByteBrusherParams> _mockCliOptions= null!;
     private FilterUtil _filterUtil= null!;
 
     [SetUp]
@@ -24,7 +24,7 @@ public class FilterUtilTest
     {
         _mockLogger = new Mock<ILogger<FilterUtil>>();
         _mockOptions = new Mock<IOptions<FileExtensions>>();
-        _mockCliOptions = new Mock<ICliOptions>();
+        _mockCliOptions = new Mock<ByteBrusherParams>();
 
         _mockCliOptions.Setup(x => x.Path).Returns("/example/path");
         _mockCliOptions.Setup(x => x.DeleteFlag).Returns(true);
