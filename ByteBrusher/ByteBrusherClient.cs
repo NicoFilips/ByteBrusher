@@ -1,4 +1,5 @@
 using ByteBrusher.Core.File;
+using ByteBrusher.Core.Parameter;
 using ByteBrusher.Util.Abstraction.Delete;
 using ByteBrusher.Util.Abstraction.Filter;
 using ByteBrusher.Util.Abstraction.Hash;
@@ -18,7 +19,7 @@ public class ByteBrusherClient(ILogger<ByteBrusherClient> logger, IScanUtil scan
             var foundFiles = scanUtil.GetFileInfos(pathToCleanUp).ToList();
             logger.LogInformation("found: {FoundFileCount} files. filtering out images, pictures and videos now.", foundFiles.Count);
 
-            foundFiles = filterUtil.FilterFiles(foundFiles);
+            foundFiles = filterUtil.FilterFiles(foundFiles, new ByteBrusherParams());
             logger.LogInformation("filtered list with console arguments. now we have : {FoundFileCount} files left.", foundFiles.Count);
 
             Dictionary<string, List<FoundFile>> duplicates = await hashUtil.GetDuplicatesAsync(foundFiles);

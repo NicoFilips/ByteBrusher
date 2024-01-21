@@ -1,5 +1,6 @@
 using ByteBrusher.Core.File;
 using ByteBrusher.Core.File.FileTypes;
+using ByteBrusher.Core.Parameter;
 using ByteBrusher.Tests.Util;
 using ByteBrusher.Util.Abstraction.Delete;
 using ByteBrusher.Util.Abstraction.Filter;
@@ -32,7 +33,7 @@ public class ByteBrusherClientTests
         var duplicateFiles = new Dictionary<string, List<FoundFile>>();
         _logger = new Mock<ILogger<ByteBrusherClient>>().Object;
         _filterUtil = new Mock<IFilterUtil>();
-        _filterUtil.Setup(x => x.FilterFiles(It.IsAny<List<FoundFile>>())).Returns(foundFiles);
+        _filterUtil.Setup(x => x.FilterFiles(It.IsAny<List<FoundFile>>(), It.IsAny<ByteBrusherParams>())).Returns(foundFiles);
         _scanUtil = new Mock<IScanUtil>();
         _scanUtil.Setup(x => x.GetFileInfos(It.IsAny<string>())).Returns(foundFiles);
         _deleteUtil = new Mock<IDeleteUtil>();

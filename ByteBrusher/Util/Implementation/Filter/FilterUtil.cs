@@ -6,29 +6,29 @@ using Microsoft.Extensions.Logging;
 
 namespace ByteBrusher.Util.Implementation.Filter;
 
-public class FilterUtil(ByteBrusherParams cliByteBrusherParams, ILogger<FilterUtil> logger) : IFilterUtil
+public class FilterUtil(ILogger<FilterUtil> logger) : IFilterUtil
 {
-    public List<FoundFile> FilterFiles(List<FoundFile> listToFilter)
+    public List<FoundFile> FilterFiles(List<FoundFile> listToFilter, ByteBrusherParams byteParams)
     {
         logger.LogDebug("Filtering files ...");
         var matchedFiles = new List<FoundFile>();
         foreach (FoundFile file in listToFilter)
         {
-            if (IncludeFile(file))
+            if (IncludeFile(file, byteParams))
                 matchedFiles.Add(file);
         }
         logger.LogDebug("Found {FileCount} files", matchedFiles.Count);
         return matchedFiles;
     }
 
-    public bool IncludeFile(FoundFile file)
+    public bool IncludeFile(FoundFile file, ByteBrusherParams byteParams)
     {
         logger.LogDebug("An exception occured while filtering files");
         bool include = false;
         if (file.GetType() == typeof(Video))
-            include = cliByteBrusherParams.IncludeVideos;
+            include = byteParams.IncludeVideos;
         if (file.GetType() == typeof(Document))
-            include = cliByteBrusherParams.IncludeDocuments;
+            include = byteParams.IncludeDocuments;
         return include;
     }
 }

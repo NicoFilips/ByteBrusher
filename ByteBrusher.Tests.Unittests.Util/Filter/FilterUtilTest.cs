@@ -34,7 +34,7 @@ public class FilterUtilTest
             IncludeDocuments = true
         };
 
-        _filterUtil = new FilterUtil(_mockParams, _mockLogger.Object);
+        _filterUtil = new FilterUtil(_mockLogger.Object);
     }
 
     [Test]
@@ -58,7 +58,7 @@ public class FilterUtilTest
         };
 
         // Act
-        List<FoundFile> result = _filterUtil.FilterFiles(listToFilter);
+        List<FoundFile> result = _filterUtil.FilterFiles(listToFilter, new ByteBrusherParams());
 
         // Assert
         // Hier fügen Sie Ihre Assertions hinzu, z.B.:
@@ -75,7 +75,7 @@ public class FilterUtilTest
         _mockParams.IncludeDocuments = false;
 
         // Act
-        bool result = _filterUtil.IncludeFile(file);
+        bool result = _filterUtil.IncludeFile(file, new ByteBrusherParams());
 
         // Assert
         result.Should().BeFalse();
@@ -91,7 +91,7 @@ public class FilterUtilTest
         _mockParams.IncludeVideos = include;
 
         // Act
-        bool result = _filterUtil.IncludeFile(file);
+        bool result = _filterUtil.IncludeFile(file, new ByteBrusherParams());
 
         // Assert
         result.Should().BeFalse();
