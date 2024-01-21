@@ -3,6 +3,8 @@ name: Build and Publish NuGet Package
 on:
   push:
     branches: [ main ]
+    tags:
+      - 'v*'
 
 jobs:
   build-and-publish:
