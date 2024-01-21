@@ -27,9 +27,6 @@ jobs:
     - name: Pack
       run: dotnet pack --configuration Release --no-build --output ./nupkgs ./ByteBrusher/ByteBrusher.csproj
 
-    - name: List NuGet packages
-      run: ls ./nupkgs
-      
     - name: Publish NuGet Package
       run: dotnet nuget push ${{ github.workspace }}/nupkgs/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
 
