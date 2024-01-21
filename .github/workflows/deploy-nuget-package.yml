@@ -1,3 +1,5 @@
+name: Build and Publish NuGet Package
+
 on:
   push:
     branches: [ main ]
@@ -13,15 +15,27 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '8.0.x'
+        dotnet-version: '8.0.x' # Ändere dies entsprechend deiner .NET-Version
+
+    - name: Define Package Version
+      id: package_version
+      run: echo "PACKAGE_VERSION=$(git tag --sort=v:refname | tail -n 1 | sed 's/v//')" >> $GITHUB_ENV
 
     - name: Restore Dependencies
       run: dotnet restore
 
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+
+    - name: Test
+      run: dotnet test --no-restore --verbosity normal
+
     - name: Pack
-      run: dotnet pack --configuration Release --no-build --output ./nupkgs ./ByteBrusher/ByteBrusher.csproj
+      run: dotnet pack --configuration Release --no-build --output nupkgs /p:PackageVersion=1.0.0
+
+
+    - name: Pack
+      run: dotnet pack --configuration Release --no-build --output nupkgs /p:PackageVersion=${{ steps.get_version.outputs.VERSION }}
 
     - name: Publish NuGet Package
-      run: nuget push **\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}
-
-
+      run: dotnet nuget push ./nupkgs/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
