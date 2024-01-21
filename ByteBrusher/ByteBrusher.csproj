@@ -4,6 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <IsPackable>true</IsPackable>
     <PackageId>ByteBrusher</PackageId>
+    <PackageVersion>8.0.1</PackageVersion>
     <Version>8.0.1</Version>
     <ImplicitUsings>enable</ImplicitUsings>
     <Authors>Nico Filips</Authors>
