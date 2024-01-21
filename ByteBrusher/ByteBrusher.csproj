@@ -12,7 +12,6 @@
     <Nullable>enable</Nullable>
     <LangVersion>12</LangVersion>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageIcon>icon.png</PackageIcon>
     <RepositoryUrl>https://github.com/NicoFilips/ByteBrusher</RepositoryUrl>
   </PropertyGroup>
 
