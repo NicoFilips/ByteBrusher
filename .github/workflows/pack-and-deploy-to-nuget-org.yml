@@ -1,4 +1,4 @@
-name: Build and Publish NuGet Package
+name: pack & deploy to NuGet.org
 
 on:
   push:
