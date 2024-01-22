@@ -1,4 +1,4 @@
-name: Unittests
+name: Run Unit, Integration and Smoketest
 
 on:
   push:
