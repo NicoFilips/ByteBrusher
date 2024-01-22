@@ -1,4 +1,4 @@
-name: Build
+name: Dotnet Build
 
 on:
   push:
@@ -15,7 +15,7 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 6.0.x  # Setzen Sie hier Ihre gewünschte .NET Core-Version ein
+        dotnet-version: 8.0.x  # Setzen Sie hier Ihre gewünschte .NET Core-Version ein
         
     - name: Restore dependencies
       run: dotnet restore
