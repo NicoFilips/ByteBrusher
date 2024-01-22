@@ -20,7 +20,10 @@
 </blockquote>
 
 
- [![Build](https://github.com/NicoFilips/ByteBrusher/actions/workflows/build.yml/badge.svg)](https://github.com/NicoFilips/ByteBrusher/actions/workflows/build.yml)
+[![NuGet](https://img.shields.io/nuget/v/ByteBrusher.svg)](https://www.nuget.org/packages/ByteBrusher)
+
+ [![publish ErrorOr to nuget](https://github.com/NicoFilips/ByteBrusher/actions/workflows/pack-and-deploy-to-nuget-org.yml/badge.svg)](https://github.com/NicoFilips/ByteBrusher/actions/workflows/pack-and-deploy-to-nuget-org.yml)
+ [![Build](https://github.com/NicoFilips/ByteBrusher/actions/workflows/dotnet-build.yml/badge.svg)](https://github.com/NicoFilips/ByteBrusher/actions/workflows/dotnet-build.yml)
  [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=NicoFilips_ByteBrusher&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=NicoFilips_ByteBrusher)
  [![codecov](https://codecov.io/gh/NicoFilips/ByteBrusher/branch/main/graph/badge.svg?token=DR2EBIWK7B)](https://codecov.io/gh/NicoFilips/ByteBrusher)
  [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
