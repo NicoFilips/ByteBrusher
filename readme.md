@@ -22,7 +22,7 @@
 
 [![NuGet](https://img.shields.io/nuget/v/ByteBrusher.svg)](https://www.nuget.org/packages/ByteBrusher)
 
- [![publish ErrorOr to nuget](https://github.com/NicoFilips/ByteBrusher/actions/workflows/pack-and-deploy-to-nuget-org.yml/badge.svg)](https://github.com/NicoFilips/ByteBrusher/actions/workflows/pack-and-deploy-to-nuget-org.yml)
+ [![publish ByteBrusher to nuget](https://github.com/NicoFilips/ByteBrusher/actions/workflows/pack-and-deploy-to-nuget-org.yml/badge.svg)](https://github.com/NicoFilips/ByteBrusher/actions/workflows/pack-and-deploy-to-nuget-org.yml)
  [![Build](https://github.com/NicoFilips/ByteBrusher/actions/workflows/dotnet-build.yml/badge.svg)](https://github.com/NicoFilips/ByteBrusher/actions/workflows/dotnet-build.yml)
  
 [![SonarCloud](https://sonarcloud.io/api/project_badges/measure?project=NicoFilips_ByteBrusher&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=NicoFilips_ByteBrusher)
