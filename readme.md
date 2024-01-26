@@ -73,16 +73,14 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-So if you're just a bit like myself you'll come to the conclusion that its not always easy to keep track of your data. Doesn't matter if it's your vacationpictures, memes, documents, bills, videos or whatever to store. Adding and keeping track of additional Backups, makes the whole thing even worse. And your Desktop isn't git, managing all of this without look into future things you did is hard. This time around, I wanted to create an application, that solves made mistakes. This application recognizes duplicates and removes them, if necessary.
+So, if you're anything like me, you'll realize that it's not always straightforward to manage your data. Whether it's vacation photos, memes, documents, bills, videos, or anything else you need to store, the challenge is real. The task becomes even more daunting when you add the necessity of managing additional backups. And let's face it, your desktop isn't a version control system like git, making it tough to handle all this without considering future changes you might make. This time, I set out to develop an application that corrects past mistakes. It identifies and, if needed, eliminates duplicates.
 
 Here's why:
-* Your time should be focused on creating something amazing. Finding duplicates and unwanted documents, isn't
-* You shouldn't be doing the same tasks over and over again
-* Keep your desktop tidy and your storage as empty as possible :smile:
+* Your time should be spent on creating something remarkable, not hunting down duplicates and unnecessary documents.
+* Repeating the same tasks over and over isn't efficient.
+* Keeping your desktop organized and your storage as minimal as possible is essential. 😄
 
-Of course, this project may not be perfect and possibly not serve all your needs. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people looking into this Repository!
-
-Use the `BLANK_README.md` to get started.
+Admittedly, this project might not be flawless or meet all your needs. So, I plan to make more improvements soon. You're also welcome to suggest changes by forking this repository, creating a pull request, or opening an issue. A big thank you to everyone who takes the time to explore this Repository!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -209,7 +207,7 @@ Don't forget to give the project a star! Thanks again!
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the MIT License. See `LICENSE` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -230,8 +228,6 @@ Nico Filips - git@nicofilips.de
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
 
 * [CommandLineParser]([https://choosealicense.com](https://github.com/commandlineparser/commandline/wiki))
 * [NLog](https://nlog-project.org/)
