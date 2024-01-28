@@ -7,13 +7,11 @@ public class DuplicateUtil(ILogger<DuplicateUtil> logger) : IDuplicateUtil
 {
     public List<string> SortFiles(List<string> suffixes, List<string> Files)
     {
-        logger.LogDebug("sortinging files");
-        var sortedList = new List<string>();
-        foreach (string file in Files)
-        {
-            if (suffixes.Any(suffix => file.EndsWith(suffix, StringComparison.Ordinal)))
-                sortedList.Add(file);
-        }
+        logger.LogDebug("Sorting files");
+
+        var sortedList = Files.Where(file => suffixes.Any(suffix => file.EndsWith(suffix, StringComparison.Ordinal)))
+                              .ToList();
+
         return sortedList;
     }
 

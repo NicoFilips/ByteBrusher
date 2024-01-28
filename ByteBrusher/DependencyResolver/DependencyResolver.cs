@@ -9,8 +9,6 @@ namespace ByteBrusher.DependencyResolver;
 
 public static class DependencyResolver
 {
-    private static readonly string _logPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Documents");
-
     public static IHostBuilder CreateHostBuilder(string[] args)
         =>
             Host.CreateDefaultBuilder(args)
