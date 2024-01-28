@@ -35,14 +35,16 @@ public class HashUtil(ILogger<HashUtil> logger, IFileAbstraction fileStream) :
         {
             foreach (FoundFile fileToCompare in files)
             {
-                if (file.FileInfo.Name != fileToCompare.FileInfo.Name)
+                if (file.FileInfo.Name != fileToCompare.FileInfo.Name &&
+                    await CompareChecksumAsync(file.FileInfo.FullName, fileToCompare.FileInfo.FullName))
                 {
-                    if (await CompareChecksumAsync(file.FileInfo.FullName, fileToCompare.FileInfo.FullName))
+                    if (fileHashes.TryGetValue(file.FileInfo.FullName, out List<FoundFile>? value))
                     {
-                        if (fileHashes.TryGetValue(file.FileInfo.FullName, out List<FoundFile>? value))
-                            value.Add(fileToCompare);
-                        else
-                            fileHashes[file.FileInfo.FullName] = [new() { FileInfo = fileToCompare.FileInfo, FileType = fileToCompare.FileType }];
+                        value.Add(fileToCompare);
+                    }
+                    else
+                    {
+                        fileHashes[file.FileInfo.FullName] = new List<FoundFile> { fileToCompare };
                     }
                 }
             }
