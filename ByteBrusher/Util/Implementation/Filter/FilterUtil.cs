@@ -11,13 +11,11 @@ public class FilterUtil(ILogger<FilterUtil> logger) : IFilterUtil
     public List<FoundFile> FilterFiles(List<FoundFile> listToFilter, ByteBrusherParams byteParams)
     {
         logger.LogDebug("Filtering files ...");
-        var matchedFiles = new List<FoundFile>();
-        foreach (FoundFile file in listToFilter)
-        {
-            if (IncludeFile(file, byteParams))
-                matchedFiles.Add(file);
-        }
+
+        var matchedFiles = listToFilter.Where(file => IncludeFile(file, byteParams)).ToList();
+
         logger.LogDebug("Found {FileCount} files", matchedFiles.Count);
+
         return matchedFiles;
     }
 

@@ -1,8 +1,8 @@
 namespace ByteBrusher.Core.Parameter;
 
-public class IByteBrusherParams
+public interface IByteBrusherParams
 {
-    public string Path { get; set; } = string.Empty;
+    public string Path { get; set; }
 
     public bool DeleteFlag { get; set; }
 
