@@ -1,7 +1,10 @@
 ﻿namespace ByteBrusher.Core.Exceptions;
 
-public sealed class FileTypeNotSpecifiedException : System.Exception
+public class FileTypeNotSpecifiedException : Exception
 {
+    public FileTypeNotSpecifiedException()
+    {}
+
     public FileTypeNotSpecifiedException(string message)
         : base(message)
     {}
