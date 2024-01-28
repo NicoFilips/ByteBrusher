@@ -1,4 +1,4 @@
-name: Build and Publish NuGet Package
+name: pack & deploy to NuGet.org
 
 on:
   push:
@@ -31,11 +31,7 @@ jobs:
       run: dotnet test --no-restore --verbosity normal
 
     - name: Pack
-      run: dotnet pack --configuration Release --no-build --output nupkgs /p:PackageVersion=1.0.0
-
-
-    - name: Pack
-      run: dotnet pack --configuration Release --no-build --output nupkgs /p:PackageVersion=${{ steps.get_version.outputs.VERSION }}
+      run: dotnet pack --configuration Release --no-build --output nupkgs
 
     - name: Publish NuGet Package
-      run: dotnet nuget push ./nupkgs/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ./nupkgs/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json --skip-duplicate
