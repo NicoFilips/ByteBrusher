@@ -9,15 +9,16 @@ namespace ByteBrusher.Util.Implementation.Delete;
 public class DeleteUtil(ILogger<DeleteUtil> logger, IFileAbstraction fileAbstraction) : IDeleteUtil
 {
     private IFileAbstraction FileAbstraction { get; init; } = fileAbstraction;
-    private ILogger<DeleteUtil> Logger { get; init; } = logger;
 
     public ErrorOr<Deleted> TryDelete(List<FoundFile> duplicates)
     {
         if (duplicates.Count == 0)
             return Error.Unexpected("No duplicates found");
+        logger.LogInformation("No duplicates found");
 
         if (!duplicates.All(file => FileAbstraction.Exists(file.FileInfo.FullName)))
             return Error.NotFound("One or more files do not exist");
+        logger.LogInformation("One or more files do not exist");
 
         try
         {
