@@ -160,9 +160,27 @@ _Below is an example of how you can instruct your audience on installing and set
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+I've coded some extension methods to configure your IHost. It also registers Dependency Injection so you can integrate it into your Apps:
+    
+### Register the DI Services into your App:
+```
+    private static void Main(string[] args)
+    {
+        IHost host = DependencyResolver.DependencyResolver.CreateHostBuilder(args).Build();
+```
+### Get Services from your DI Container:     
+```
+        CliOptions = host.Services.GetRequiredService<ICliOptions>();
+        _byteBrusherClient = host.Services.GetRequiredService<IByteBrusherClient>();
+        _logger = host.Services.GetRequiredService<ILogger<Program>>();
+```
+### Start Brushing your Bytes!
+```
+        _byteBrusherClient.ExecuteAsync(CliOptions.DeleteFlag, CliOptions.Path);
+        _logger.LogInformation("---- < ByteBrusher.CLI finished > ----");
+ }
+```
 
-_For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
