@@ -1,4 +1,6 @@
-﻿using ByteBrusher.Core.Exceptions;
+//# me gustaría seguir partiendo #//
+
+using ByteBrusher.Core.Exceptions;
 using ByteBrusher.Core.File.FileTypes.Abstraction;
 
 namespace ByteBrusher.Core.File.FileTypes;
