@@ -142,7 +142,7 @@ _Below is an example of how you can instruct your audience on installing and set
 1. Request a Pull Request
 2. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git](https://github.com/NicoFilips/ByteBrusher/
+   git clone https://github.com/NicoFilips/ByteBrusher.git](https://github.com/NicoFilips/ByteBrusher/
    ```
 3. Restore Nuget packages
    ```sh
