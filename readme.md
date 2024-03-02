@@ -22,6 +22,10 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![GitHub contributors](https://img.shields.io/github/contributors/NicoFilips/ByteBrusher)](https://GitHub.com/NicoFilips/ByteBrusher/graphs/contributors/)
 
+![C# Logo](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
+![Nuget](https://img.shields.io/badge/NuGet-004880.svg?style=for-the-badge&logo=NuGet&logoColor=white)
+![](https://img.shields.io/badge/.NET-8-512BD4?style=for-the-badge&logo=.net&logoColor=white)
+
   <h3 align="center">Byte Brusher</h3>
 
   <p align="center">
@@ -86,9 +90,16 @@ Admittedly, this project might not be flawless or meet all your needs. So, I pla
 
 ```mermaid
 classDiagram
-    class Program {
-        -IScanUtil _scanUtil
-        +IFilterUtil _filterUtil
+    class YourProgram {
+        DependencyInjection
+    }
+
+    class DependencyInjection{
+        +ScanUtil
+        +DeleteUtil
+        +DuplicateUtil
+        +FilterUtil
+        +HashUtil
     }
 
     class ScanUtil {
@@ -100,8 +111,25 @@ classDiagram
         +Filter()
     }
 
-    Program <|-- ScanUtil : uses
-    Program <|-- FilterUtil : uses
+    class DuplicateUtil {
+        +FindDuplicates()
+    }
+
+    class DeleteUtil {
+        +DeleteDuplicates()
+    }
+
+    class HashUtil {
+        +CompareFilehashes()
+    }
+
+    DependencyInjection <|-- HashUtil : uses
+    DependencyInjection <|-- ScanUtil : uses
+    DependencyInjection <|-- FilterUtil : uses
+    DependencyInjection <|-- DuplicateUtil : uses
+    DependencyInjection <|-- DeleteUtil : uses
+
+    YourProgram <|-- DependencyInjection : Hosting Extension
 ```
 
 ### Built With
