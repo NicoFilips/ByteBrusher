@@ -1,12 +1,10 @@
 ﻿using ByteBrusher.Core.File;
 using ByteBrusher.Core.File.FileTypes;
 using ByteBrusher.Core.File.FileTypes.Abstraction;
-using ByteBrusher.Core.IOptions;
 using ByteBrusher.Core.Parameter;
 using ByteBrusher.Util.Implementation.Filter;
 using FluentAssertions;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Moq;
 using NUnit.Framework;
 
@@ -15,7 +13,6 @@ namespace ByteBrusher.Tests.Unittests.Util.Filter;
 public class FilterUtilTest
 {
     private Mock<ILogger<FilterUtil>> _mockLogger = null!;
-    private Mock<IOptions<FileExtensions>> _mockOptions= null!;
     private ByteBrusherParams _mockParams= null!;
     private FilterUtil _filterUtil= null!;
 
@@ -23,7 +20,6 @@ public class FilterUtilTest
     public void Setup()
     {
         _mockLogger = new Mock<ILogger<FilterUtil>>();
-        _mockOptions = new Mock<IOptions<FileExtensions>>();
         _mockParams = new ByteBrusherParams();
 
         _mockParams = new ByteBrusherParams

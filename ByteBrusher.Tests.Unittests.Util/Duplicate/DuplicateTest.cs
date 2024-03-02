@@ -10,7 +10,6 @@ namespace ByteBrusher.Tests.Unittests.Util.Duplicate;
 public class DuplicateTest
 {
     private List<string> suffixes = null!;
-    private List<string> files = null!;
     private Mock<ILogger<DuplicateUtil>> loggerMock = null!;
     private DuplicateUtil duplicateUtil = null!;
 
@@ -20,7 +19,6 @@ public class DuplicateTest
         loggerMock = new Mock<ILogger<DuplicateUtil>>();
         duplicateUtil = new DuplicateUtil(loggerMock.Object);
         suffixes = [".jpg", ".png", ".txt"];
-        files = ["image.jpg", "document.txt", "video.mp4", "photo.png"];
     }
 
     [Test]
