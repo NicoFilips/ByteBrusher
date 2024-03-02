@@ -1,5 +1,8 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace ByteBrusher.Core.Parameter;
 
+[ExcludeFromCodeCoverage]
 public class ByteBrusherParams : IByteBrusherParams
 {
     public string Path { get; set; } = string.Empty;

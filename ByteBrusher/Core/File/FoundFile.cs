@@ -1,7 +1,9 @@
-﻿using ByteBrusher.Core.File.FileTypes.Abstraction;
+﻿using System.Diagnostics.CodeAnalysis;
+using ByteBrusher.Core.File.FileTypes.Abstraction;
 
 namespace ByteBrusher.Core.File;
 
+[ExcludeFromCodeCoverage]
 public record FoundFile : IDisposable
 {
     public IFileType FileType { get; set; } = null!;

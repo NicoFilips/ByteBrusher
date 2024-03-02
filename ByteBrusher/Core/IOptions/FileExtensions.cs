@@ -1,5 +1,8 @@
-﻿namespace ByteBrusher.Core.IOptions;
+﻿using System.Diagnostics.CodeAnalysis;
 
+namespace ByteBrusher.Core.IOptions;
+
+[ExcludeFromCodeCoverage]
 public record FileExtensions
 {
     public string[] VideoSuffix { get; set; } = [];
