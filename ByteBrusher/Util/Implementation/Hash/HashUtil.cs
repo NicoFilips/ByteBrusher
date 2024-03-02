@@ -24,31 +24,42 @@ public class HashUtil(ILogger<HashUtil> logger, IFileAbstraction fileStream) :
         string checksum1 = await CalculateChecksumAsync(file);
         string checksum2 = await CalculateChecksumAsync(fileToCompare);
 
-        return checksum1 == checksum2;
+        if (checksum1 != checksum2)
+            return false;
+
+        Logger.LogInformation("Files {File} and {File2} are duplicates", file, fileToCompare);
+        return true;
     }
 
     public async Task<Dictionary<string, List<FoundFile>>> GetDuplicatesAsync(List<FoundFile> files)
     {
+        var checksumsToFiles = new Dictionary<string, List<FoundFile>>();
         var fileHashes = new Dictionary<string, List<FoundFile>>();
 
         foreach (FoundFile file in files)
         {
-            foreach (FoundFile fileToCompare in files)
+            string checksum = await CalculateChecksumAsync(file.FileInfo.FullName);
+            if (checksumsToFiles.TryGetValue(checksum, out List<FoundFile>? fileList))
             {
-                if (file.FileInfo.Name != fileToCompare.FileInfo.Name &&
-                    await CompareChecksumAsync(file.FileInfo.FullName, fileToCompare.FileInfo.FullName))
+                fileList.Add(file);
+            }
+            else
+            {
+                checksumsToFiles[checksum] = new List<FoundFile> { file };
+            }
+        }
+
+        foreach (KeyValuePair<string, List<FoundFile>> entry in checksumsToFiles)
+        {
+            if (entry.Value.Count > 1)
+            {
+                foreach (FoundFile file in entry.Value)
                 {
-                    if (fileHashes.TryGetValue(file.FileInfo.FullName, out List<FoundFile>? value))
-                    {
-                        value.Add(fileToCompare);
-                    }
-                    else
-                    {
-                        fileHashes[file.FileInfo.FullName] = new List<FoundFile> { fileToCompare };
-                    }
+                    fileHashes[file.FileInfo.FullName] = entry.Value.Where(f => f != file).ToList();
                 }
             }
         }
+
         return fileHashes;
     }
 }
