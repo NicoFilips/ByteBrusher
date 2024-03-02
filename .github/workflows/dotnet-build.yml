@@ -12,10 +12,10 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v3
 
-    - name: Setup .NET Core
+    - name: Setup .NET 8
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 8.0.x  # Setzen Sie hier Ihre gewünschte .NET Core-Version ein
+        dotnet-version: 8.0.x
         
     - name: Restore dependencies
       run: dotnet restore
