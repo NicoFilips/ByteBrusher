@@ -12,6 +12,7 @@ namespace ByteBrusher.Util.Implementation.Scan;
 
 public class ScanUtil(ILogger<ScanUtil> logger, IDirectoryAccess directoryAccess, IOptions<FileExtensions> options) : IScanUtil
 {
+    public ILogger<ScanUtil> Logger { get; } = logger;
     private readonly string[] documents = options.Value.DocumentSuffix;
 
     private readonly string[] images = options.Value.ImageSuffix;
@@ -67,8 +68,6 @@ public class ScanUtil(ILogger<ScanUtil> logger, IDirectoryAccess directoryAccess
 
     public IFileType ClassifyFile(string filename)
     {
-        try
-        {
             string suffix = Path.GetExtension(filename);
             var fileDictionary = new Dictionary<IFileType, string[]>
             {
@@ -79,11 +78,5 @@ public class ScanUtil(ILogger<ScanUtil> logger, IDirectoryAccess directoryAccess
 
             IFileType? fileType = fileDictionary.FirstOrDefault(entry => entry.Value.Contains(suffix)).Key;
             return fileType ?? new Unspecified();
-        }
-        catch (Exception exception)
-        {
-            logger.LogError(exception, "An exception occured {ErrorMessage}", exception.Message);
-            return new Unspecified();
-        }
     }
 }

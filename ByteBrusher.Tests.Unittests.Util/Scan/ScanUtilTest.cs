@@ -18,7 +18,7 @@ public class ScanutilTest
     private Mock<ILogger<ScanUtil>> _mockLogger = null!;
     private readonly Mock<IOptions<FileExtensions>> _mockConfig = new();
     private readonly Mock<IDirectoryAccess> _mockDirectoryAccess = new();
-    private ScanUtil _scanUtil = null!;
+    private ScanUtil _sut = null!;
     private static readonly string[] vidSuffix = [".mp4", ".avi", ".mkv", ".mov", ".wmv", ".flv", ".webm"];
     private static readonly string[] imgSuffix = [".png", ".jpg", ".jpeg", ".gif", ".bmp", ".svg", ".tiff", ".tif"];
     private static readonly string[] docSuffix = [".pdf", ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx", ".txt", ".rtf", ".odt", ".ods", ".odp", ".xml", ".csv"];
@@ -34,7 +34,7 @@ public class ScanutilTest
             DocumentSuffix = docSuffix
         });
         _mockDirectoryAccess.Setup(ap => ap.GetFilesInPath(It.IsAny<string>())).Returns([]);
-        _scanUtil = new ScanUtil(_mockLogger.Object, _mockDirectoryAccess.Object,  _mockConfig.Object);
+        _sut = new ScanUtil(_mockLogger.Object, _mockDirectoryAccess.Object,  _mockConfig.Object);
     }
 
     [TestCase("Hello World", "a591a6d40bf420404a011733cfb7b190d62c65bf0bcda32b57b277d9ad9f146e")]
@@ -50,7 +50,7 @@ public class ScanutilTest
         try
         {
             // Act
-            string actualHash = _scanUtil.ComputeSha256Hash(testFileName);
+            string actualHash = _sut.ComputeSha256Hash(testFileName);
 
             // Assert
             actualHash.Should().Be(expectedHash);
@@ -72,7 +72,7 @@ public class ScanutilTest
                             .Returns(() => new MemoryStream());
 
         // Act
-        bool result = _scanUtil.GetsAllDuplicates("some/path");
+        bool result = _sut.GetsAllDuplicates("some/path");
 
         // Assert
         _mockDirectoryAccess.Verify(m => m.OpenRead("file1.jpg"), Times.Once);
@@ -89,9 +89,22 @@ public class ScanutilTest
         string testFileName = $"test{fileExtension}";
 
         // Act
-        IFileType result = _scanUtil.ClassifyFile(testFileName);
+        IFileType result = _sut.ClassifyFile(testFileName);
 
         // Assert
         result.Should().BeOfType(expectedType);
+    }
+
+    [Test]
+    public void ClassifyFile_WhenExceptionIsThrown_ReturnsUnspecifiedFileType()
+    {
+        // Arrange
+        string invalidFilename = "testFile.invalidExtension";
+
+        // Act
+        IFileType result = _sut.ClassifyFile(invalidFilename);
+
+        // Assert
+        result.Should().BeOfType<Unspecified>();
     }
 }
