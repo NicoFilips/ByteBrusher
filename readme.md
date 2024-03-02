@@ -75,8 +75,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 So, if you're anything like me, you'll realize that it's not always straightforward to manage your data. Whether it's vacation photos, memes, documents, bills, videos, or anything else you need to store, the challenge is real. The task becomes even more daunting when you add the necessity of managing additional backups. And let's face it, your desktop isn't a version control system like git, making it tough to handle all this without considering future changes you might make. This time, I set out to develop an application that corrects past mistakes. It identifies and, if needed, eliminates duplicates.
 
 Here's why:
@@ -90,16 +88,17 @@ Admittedly, this project might not be flawless or meet all your needs. So, I pla
 
 ```mermaid
 classDiagram
-    class YourProgram {
-        DependencyInjection
+    class Your-Program-To-Implement {
+        DependencyResolver
     }
 
-    class DependencyInjection{
-        +ScanUtil
-        +DeleteUtil
-        +DuplicateUtil
-        +FilterUtil
-        +HashUtil
+    class DependencyResolver{
+        -CreateHostBuilder(string[] args) IHostBuilder
+        -ScanUtil
+        -DeleteUtil
+        -DuplicateUtil
+        -FilterUtil
+        -HashUtil
     }
 
     class ScanUtil {
@@ -123,13 +122,13 @@ classDiagram
         +CompareFilehashes()
     }
 
-    DependencyInjection <|-- HashUtil : uses
-    DependencyInjection <|-- ScanUtil : uses
-    DependencyInjection <|-- FilterUtil : uses
-    DependencyInjection <|-- DuplicateUtil : uses
-    DependencyInjection <|-- DeleteUtil : uses
+    DependencyResolver o-- HashUtil : DI Service
+    DependencyResolver o-- ScanUtil : DI Service
+    DependencyResolver o-- FilterUtil : DI Service
+    DependencyResolver o-- DuplicateUtil : DI Service
+    DependencyResolver o-- DeleteUtil : DI Service
 
-    YourProgram <|-- DependencyInjection : Hosting Extension
+    Your-Program-To-Implement <|-- DependencyResolver : Hosting Extension
 ```
 
 ### Built With
