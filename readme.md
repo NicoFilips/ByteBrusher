@@ -11,7 +11,6 @@
   <p>Source: DALL-E 3</p>
 </blockquote>
 
-
 [![NuGet](https://img.shields.io/nuget/v/ByteBrusher.svg)](https://www.nuget.org/packages/ByteBrusher)
 
  [![publish ByteBrusher to nuget](https://github.com/NicoFilips/ByteBrusher/actions/workflows/pack-and-deploy-to-nuget-org.yml/badge.svg)](https://github.com/NicoFilips/ByteBrusher/actions/workflows/pack-and-deploy-to-nuget-org.yml)
