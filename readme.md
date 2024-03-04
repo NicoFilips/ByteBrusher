@@ -17,7 +17,6 @@
  [![publish ByteBrusher to nuget](https://github.com/NicoFilips/ByteBrusher/actions/workflows/pack-and-deploy-to-nuget-org.yml/badge.svg)](https://github.com/NicoFilips/ByteBrusher/actions/workflows/pack-and-deploy-to-nuget-org.yml)
  [![Build](https://github.com/NicoFilips/ByteBrusher/actions/workflows/dotnet-build.yml/badge.svg)](https://github.com/NicoFilips/ByteBrusher/actions/workflows/dotnet-build.yml)
  
-[![SonarCloud](https://sonarcloud.io/api/project_badges/measure?project=NicoFilips_ByteBrusher&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=NicoFilips_ByteBrusher)
 [![Code-Coverage](https://codecov.io/gh/NicoFilips/ByteBrusher/branch/main/graph/badge.svg?token=DR2EBIWK7B)](https://codecov.io/gh/NicoFilips/ByteBrusher)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![GitHub contributors](https://img.shields.io/github/contributors/NicoFilips/ByteBrusher)](https://GitHub.com/NicoFilips/ByteBrusher/graphs/contributors/)
