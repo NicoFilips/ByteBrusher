@@ -49,22 +49,23 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#architecture">Architecture 🔨</a></li>
+        <li><a href="#built-with">Built With 🏗️</a></li>
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
+      <a href="#getting-started">Getting Started 🏄</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#prerequisites">Prerequisites 📘</a></li>
+        <li><a href="#installation">Installation ⚙️</a></li>
       </ul>
     </li>
-    <li><a href="#usage 🔨 ">Usage</a></li>
-    <li><a href="#roadmap 🗺️ ">Roadmap</a></li>
-    <li><a href="#contributing 👨‍👩‍👦‍👦 ">Contributing</a></li>
-    <li><a href="#license 🏳️ ">License</a></li>
-    <li><a href="#contact 🪪 ">Contact</a></li>
-    <li><a href="#acknowledgments 🦉">Acknowledgments</a></li>
+    <li><a href="#usage">Usage✨</a></li>
+    <li><a href="#roadmap">Roadmap 🗺️</a></li>
+    <li><a href="#contributing">Contributing 👨‍👩‍👦‍👦</a></li>
+    <li><a href="#license">License 🏳️ </a></li>
+    <li><a href="#contact">Contact 🪪 </a></li>
+    <li><a href="#acknowledgments">Acknowledgments 🦉 </a></li>
   </ol>
 </details>
 
@@ -83,6 +84,9 @@ Here's why:
 Admittedly, this project might not be flawless or meet all your needs. So, I plan to make more improvements soon. You're also welcome to suggest changes by forking this repository, creating a pull request, or opening an issue. A big thank you to everyone who takes the time to explore this Repository!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ARCHITECTURE -->
+## Architecture🔨
 
 ```mermaid
 classDiagram
@@ -128,8 +132,12 @@ classDiagram
 
     Your-Program-To-Implement <|-- DependencyResolver : Hosting Extension
 ```
+As you can see, ByteBrusher provides a bunch of Util Classes to implement in your Codebase. If you have a HostBuilder to build and run your App you can headlessly integrate the Codebase into your DI Container to let the Dependency Injection manage your instances.
+If you don't use an HostBuilder you're free to directly use the Implementation. Both works like a Charm.
 
-### Built With
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Built With
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
@@ -182,7 +190,7 @@ _Below is an example of how you can instruct your audience on installing and set
 
 
 
-<!-- USAGE EXAMPLES -->
+<!-- USAGE -->
 ## Usage
 
 I've coded some extension methods to configure your IHost. It also registers Dependency Injection so you can integrate it into your Apps:
@@ -215,13 +223,17 @@ I've coded some extension methods to configure your IHost. It also registers Dep
 ## Roadmap
 
 - [x] Build Architecture
-- [x] Add Dependency Injection
+- [x] Add Dependency Injection and HostBuilder Extensionmethod
 - [x] Add and Handle CLI Arguments
-- [x] Add Appsettings with IConfiguration
-- [x] Add NLog
+- [x] Filehash Comparison
+- [x] Add Serilog
+- [x] Unittest for every Util
+- [x] Add Codecoverage > 80%  
 - [ ] Use ML.Net to find redundant Documents
     - [ ] Memetemplates
     - [ ] Duplicates
+- [ ] Find more Contributors!
+- [ ] Earn the Startruck Badge!
 
 See the [open issues](https://github.com/NicoFilips/ByteBrusher/issues) for a full list of proposed features (and known issues).
 
